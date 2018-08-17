@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*
+Pallete Colors :
+  Orange-ish : eb997a
+  Yellow-ish : f6e0b5
+  Violet : aa6f73
+*/
+
+@font-face {
+    font-family: 'cornerstone';
+    src: url('./assets/fonts/cornerstone.woff2') format('woff2'),
+      url('./assets/fonts/cornerstone.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0;
+  color: #333;
+  background: #aa6f73;
+  /* display: flex; */
+}
+
+.header {
+  font-family: 'cornerstone';
+  position: relative;
+  text-align: center;
+  padding: 10px 0;
+
+  /* Option A */ 
+  /*
+  background: #f6e0b5;
+  color: #eb997a;
+  */
+
+  /* Option B */
+  color: #f6e0b5;
+}
+
+.footer {
+  border-radius: 5px;
+  font-family: 'cornerstone';
+  text-align: center;
+  background: #eb997a;
+  color: #f6e0b5;
+}
+
+.appcontent {
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #f6e0b5;
+}
+
+.nav {
+  border-radius: 5px;
+  margin : 10px;
+  background-color : #eb997a;
+  font-family: 'cornerstone';
+}
+
+.nav> li > a {
+  color : #aa6f73;
+}
+
+.nav> li > a:focus, .nav > li >a:hover {
+  background-color : #9757405e;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  /* width: 100%; */
+  z-index: 1;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
