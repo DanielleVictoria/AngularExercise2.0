@@ -1,0 +1,73 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Lotion X",
+            "price": 1200,
+            "category": "Healthcare"
+        },
+        {
+            "id": 2,
+            "name": "Product 2",
+            "price": 1000,
+            "category": "Fashion"
+        },
+        {
+            "id": 3,
+            "name": "Product 3",
+            "price": 900,
+            "category": "Makeup"
+        },
+        {
+            "id": 4,
+            "name": "Product 4",
+            "price": 900,
+            "category": "Entertainment"
+        }
+    ],
+    "carts": [
+        {
+            "id": 1,
+            "products": [
+                {
+                    "id": 1,
+                    "name": "Product 1",
+                    "price": 1200
+                },
+                {
+                    "id": 3,
+                    "name": "Product 3",
+                    "price": 900
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "products": [
+                {
+                    "id": 1,
+                    "name": "Product 1",
+                    "price": 1200
+                },
+                {
+                    "id": 3,
+                    "name": "Product 3",
+                    "price": 900
+                }
+            ]
+        }
+    ],
+    "users": [
+        {
+            "id" : 1,
+            "username" : "mandeuk",
+            "password" : "chichu",
+            "firstname" : "Jennie",
+            "middlename" : "RubyJane",
+            "lastname" : "Kim",
+            "email" : "kimjennie@samplemail.com",
+            "birthdate" : "01/26/1995",
+            "interests" : ["Playing with Kuma"]
+        }
+    ]
+}

@@ -1,7 +1,11 @@
-import { ProductListComponent } from "./productlist.component";
+import { ShopComponent } from "./shop.component";
+import { CartComponent } from "./cart.component";
 
 export const containers : any[] = [
-    ProductListComponent
+    ShopComponent,
+    CartComponent
 ];
 
-export * from './productlist.component';
+export * from './shop.component';
+export * from './cart.component';
+

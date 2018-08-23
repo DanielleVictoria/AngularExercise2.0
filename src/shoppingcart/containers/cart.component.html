@@ -1,0 +1,7 @@
+<br>
+<div *ngFor='let product of cartProducts$ | async'>
+    <productview
+        [product]='product'>
+            Remove to Cart
+    </productview>
+</div>

@@ -1,0 +1,1 @@
+export const Categories : string[] = ["Heathcare", "Fashion", "Makeup", "Entertainment", "Lifestyle", "Fitness", "Others"];

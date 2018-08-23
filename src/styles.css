@@ -64,7 +64,8 @@ body {
 }
 
 .nav> li > a {
-  color : #aa6f73;
+  /* color : #aa6f73; */
+  color : #644547;
 }
 
 .nav> li > a:focus, .nav > li >a:hover {
@@ -83,3 +84,12 @@ body {
 .sticky + .content {
   padding-top: 60px;
 }
+
+.productview {
+  /*margin-left: 43px;
+  margin-right : 43px;*/
+  background-color : #eb997a;
+  font-family: 'cornerstone';
+  color : #644547;
+}
+

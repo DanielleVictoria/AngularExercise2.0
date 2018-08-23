@@ -14,13 +14,14 @@ import { EffectsModule } from '@ngrx/effects';
 // from projects ( Modules )
 import { ShoppingCartModule } from '../shoppingcart/shoppingcart.module';
 
-// from project ( Component )
 import { AppComponent } from './app.component';
 
-import * as fromFeature from '../shoppingcart/store/reducers'
+import {reducers, effects} from '../shoppingcart/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { UsersModule } from '../users/users.module';
 
 const routes: Routes = [
-  { path: '**', redirectTo: '/products', pathMatch: 'full' },
+  { path: '**', redirectTo: '/shop', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -30,9 +31,12 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     ShoppingCartModule,
+    UsersModule,
     RouterModule.forRoot(routes),
     StoreRouterConnectingModule,
-    StoreModule.forRoot (fromFeature.reducers)
+    StoreModule.forRoot (reducers),
+    EffectsModule.forRoot (effects),
+    StoreDevtoolsModule.instrument()
   ],
   exports: [
     RouterModule

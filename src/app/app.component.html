@@ -4,12 +4,27 @@
 </div>
 
 <!-- Application Content -->
-<div class='appcontent col-md-offset-1 col-md-10'>
-    <shoppingcart-main></shoppingcart-main>
+<div class='appcontent 
+    col-xs-offset-0 col-xs-12
+    col-sm-offset-0 col-sm-12
+    col-md-offset-1 col-md-10
+    
+'>
+
+    <div *ngIf='(loggedin | async); else login'>
+        <shoppingcart-main></shoppingcart-main>
+    </div>
+    <ng-template #login>
+        <login></login>
+    </ng-template>
+
 </div>
 
 <!-- Footer -->
-<div class='footer col-md-offset-1 col-md-10'>
+<div class='footer 
+    col-xs-offset-0 col-xs-12
+    col-sm-offset-0 col-sm-12
+    col-md-offset-1 col-md-10
+'>
     <p>&copy; Shopping Cart. Inc</p>
 </div>
-

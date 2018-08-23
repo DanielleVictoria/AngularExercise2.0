@@ -17,16 +17,12 @@ export class LoadProducts implements Action {
 
 export class LoadProductsSuccess implements Action {
     readonly type = LOAD_PRODUCTS_SUCCESS;
-    constructor (public payload : Product[]) {
-
-    }
+    constructor (public payload : Product[]) {}
 }
 
 export class LoadProductsFail implements Action {
     readonly type = LOAD_PRODUCTS_FAIL;
-    constructor (public payload : any) {
-        
-    }
+    constructor (public payload : any) {}
 }
 
 // data type for action

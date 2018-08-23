@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { RouterLink} from '@angular/router';
 
 @Component({
     selector: 'shoppingcart-main',
@@ -8,7 +9,6 @@ import { Component, OnInit } from "@angular/core";
 export class ShoppingCartComponent implements OnInit {
     constructor() {
     }
-
     ngOnInit() {
         // When the user scrolls the page, execute myFunction 
         window.onscroll = function () { addSticky() };

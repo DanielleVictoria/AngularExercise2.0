@@ -10,13 +10,7 @@ export interface ProductsState {
 }
 
 export const initialState: ProductsState = {
-    entities: {
-        0 : {
-            id : 0,
-            name : "SQUARE UP Blackpink",
-            price : 2000
-        }
-    },
+    entities: {},
     loaded: false,
     loading: false
 }
@@ -25,6 +19,7 @@ export function reducer(state = initialState, action: fromProducts.ProductsActio
     switch (action.type) {
 
         case fromProducts.LOAD_PRODUCTS: {
+            console.log ('LOAD PRODUCTS');
             return {
                 ...state,
                 loading: true
@@ -32,6 +27,7 @@ export function reducer(state = initialState, action: fromProducts.ProductsActio
         }
 
         case fromProducts.LOAD_PRODUCTS_SUCCESS: {
+            console.log ('LOAD PRODUCTS SUCCESS');
             const payload = action.payload;
 
             const entities = payload.reduce(
