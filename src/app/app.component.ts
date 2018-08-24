@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import * as fromUserStore from '../users/store';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,20 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  loggedin : Observable<boolean>;
+  loggedin : boolean;
   
   constructor (
-    private store : Store <fromUserStore.UserState>
+    private store : Store <fromUserStore.UserState>,
+    private router : Router
   ) {}
 
   ngOnInit() {
-    this.loggedin = this.store.select (fromUserStore.getUserLoggedIn);
+    this.store.select (fromUserStore.getUserLoggedIn)
+      .subscribe((loggedin) => this.loggedin = loggedin);
+    this.store.dispatch (new fromUserStore.LoadUsers);  
+
+    this.loggedin ? this.router.navigate (['/shop']) : this.router.navigate (['/login']);
   }
+
+  
 }

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
 @Component({
   selector: 'app-forgot-password-form',
   templateUrl: './forgot-password-form.component.html',
-  //tyleUrls: ['./forgot-password-form.component.css']
+  //styleUrls: ['./forgot-password-form.component.css']
 })
 export class ForgotPasswordFormComponent implements OnInit, OnChanges {
 

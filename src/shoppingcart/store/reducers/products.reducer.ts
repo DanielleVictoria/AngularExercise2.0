@@ -19,7 +19,6 @@ export function reducer(state = initialState, action: fromProducts.ProductsActio
     switch (action.type) {
 
         case fromProducts.LOAD_PRODUCTS: {
-            console.log ('LOAD PRODUCTS');
             return {
                 ...state,
                 loading: true
@@ -27,9 +26,7 @@ export function reducer(state = initialState, action: fromProducts.ProductsActio
         }
 
         case fromProducts.LOAD_PRODUCTS_SUCCESS: {
-            console.log ('LOAD PRODUCTS SUCCESS');
             const payload = action.payload;
-
             const entities = payload.reduce(
                 (entities: { [id: number]: Product }, product: Product) => {
                     return {

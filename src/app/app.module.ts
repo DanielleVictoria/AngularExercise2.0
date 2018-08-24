@@ -21,7 +21,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { UsersModule } from '../users/users.module';
 
 const routes: Routes = [
-  { path: '**', redirectTo: '/shop', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({

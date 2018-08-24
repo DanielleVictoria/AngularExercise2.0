@@ -1,7 +1,7 @@
-import { UserEffects } from './users.effect';
+import { UserEffects } from './user.effect';
 
 export const effects : any[] = [
     UserEffects
 ];
 
-export * from './users.effect';
+export * from './user.effect';

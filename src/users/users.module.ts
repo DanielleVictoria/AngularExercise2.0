@@ -13,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule} from '@angular/forms';
 
 const routes: Routes = [
+    {path : 'login', component : fromContainers.LoginComponent}
 ];
 
 @NgModule({
@@ -20,7 +21,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         CommonModule,
         HttpClientModule,
-        StoreModule.forFeature ('user', reducers),
+        StoreModule.forFeature ('UserFeature',reducers),
         EffectsModule.forFeature (effects),
         BrowserModule,
         FormsModule

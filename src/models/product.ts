@@ -3,5 +3,5 @@ export class Product {
     name : string;
     price : number;
     category : string;
-    comments : string[];
+    comments? : string[];
 }

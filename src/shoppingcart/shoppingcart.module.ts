@@ -12,7 +12,7 @@ import * as fromContainers from './containers';
 import * as fromComponents from './components';
 import * as fromServices from './services';
 
-import { ShoppingCartComponent } from './shoppingcart.component';
+import { NavbarComponent } from './components/navbar.component';
 import { reducers, effects } from './store';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,11 +31,11 @@ const routes: Routes = [
         //EffectsModule.forFeature (effects);
     ],
     exports: [
-        ShoppingCartComponent,
+        NavbarComponent,
         RouterModule
     ],
     declarations: [
-        ShoppingCartComponent,
+        NavbarComponent,
         fromContainers.containers,
         fromComponents.components
     ],

@@ -14,34 +14,47 @@ export const getCartsState = createSelector(
 
 
 // get the entities
-export const getCartsEntities = createSelector(
+export const getCartEntities = createSelector(
     getCartsState,
     fromCartReducers.getCartsEntities
 );
 
-// unknown
-export const getCartResult = createSelector(
-    getCartsEntities, entity => {
+export const getCarts = createSelector(
+    getCartEntities, entity => {
         return Object.keys(entity).map(
             id => entity[parseInt(id, 10)]
         )
-    }
-);
+    });
 
-export const getSelectedCart = createSelector(
-    getCartsEntities,
-    (entity): Cart => {
-        return entity[1];
-    }
-);
+export const getCart = createSelector(
+    getCarts, (carts) => {
+        return carts[0]
+    });
 
 export const getCartProducts = createSelector(
-    getSelectedCart, (cart: Cart) => {
+    getCart, (cart) => {
         if (cart) {
-            return cart.products;
+            return Object.keys(cart.products).map(
+                id => cart.products[parseInt(id, 10)].product
+            )
         }
-        return [];
-    }
-);
+    });
+
+export const getProductQuantities = createSelector(
+    getCart, (cart) => {
+        if (cart) {
+            return Object.keys(cart.products).map(
+                (id) => cart.products[parseInt(id, 10)].quantity
+            )
+        }
+    });
+
+export const getProductQuantity = (product: Product) => createSelector(
+    getCart, (cart) => {
+        if (cart) {
+           return cart.products[product.id].quantity
+        }
+    });
+
 
 

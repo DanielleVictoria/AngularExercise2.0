@@ -19,8 +19,9 @@ export class CartsEffects {
 
     @Effect()
     loadCart$ = this.action$.ofType(cartActions.LOAD_CART).pipe(
-        switchMap(() => {
-            return this.cartsService.getCart(1)
+        map ((action : cartActions.LoadCart) => action.payload),
+        switchMap((user) => {
+            return this.cartsService.getCart(user.id)
                 .pipe(
                     map(cart => new cartActions.LoadCartSuccess(cart)),
                     catchError(error => of(new cartActions.LoadCartFail(error)))

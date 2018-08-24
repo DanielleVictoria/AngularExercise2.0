@@ -9,7 +9,7 @@ selector: 'loginform',
 export class LoginFormComponent implements OnInit, OnChanges {
 
   @Output()
-  loginAttemptEmitter: EventEmitter<{username,password}> = new EventEmitter();
+  loginAttemptEmitter: EventEmitter<{username : string,password : string}> = new EventEmitter();
 
   @Output()
   forgotPasswordEmitter: EventEmitter<any> = new EventEmitter();

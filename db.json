@@ -8,19 +8,19 @@
         },
         {
             "id": 2,
-            "name": "Product 2",
+            "name": "Headband Y",
             "price": 1000,
             "category": "Fashion"
         },
         {
             "id": 3,
-            "name": "Product 3",
+            "name": "Facial Powder Z",
             "price": 900,
             "category": "Makeup"
         },
         {
             "id": 4,
-            "name": "Product 4",
+            "name": "CD A",
             "price": 900,
             "category": "Entertainment"
         }
@@ -28,46 +28,95 @@
     "carts": [
         {
             "id": 1,
-            "products": [
-                {
-                    "id": 1,
-                    "name": "Product 1",
-                    "price": 1200
+            "user": {
+                "id": 1,
+                "username": "mandeuk",
+                "password": "chichu",
+                "firstname": "Jennie",
+                "middlename": "RubyJane",
+                "lastname": "Kim",
+                "email": "kimjennie@samplemail.com",
+                "birthdate": "01/26/1995",
+                "interests": "Playing with Kuma"
+            },
+            "products": {
+                "1" : {
+                    "product": {
+                        "id": 1,
+                        "name": "Lotion X",
+                        "price": 1200,
+                        "category": "Healthcare"
+                    },
+                    "quantity": 3
                 },
-                {
-                    "id": 3,
-                    "name": "Product 3",
-                    "price": 900
+                "2": {
+                    "product": {
+                        "id": 2,
+                        "name": "Headband Y",
+                        "price": 1000,
+                        "category": "Fashion"
+                    },
+                    "quantity": 5
                 }
-            ]
+            }
         },
         {
             "id": 2,
-            "products": [
-                {
-                    "id": 1,
-                    "name": "Product 1",
-                    "price": 1200
+            "user": {
+                "id": 2,
+                "username": "chichu",
+                "password": "chichu",
+                "firstname": "Jennie",
+                "middlename": "RubyJane",
+                "lastname": "Kim",
+                "email": "kimjennie@samplemail.com",
+                "birthdate": "01/26/1995",
+                "interests": "Playing with Kuma"
+            },
+            "products": {
+                "3": {
+                    "product": {
+                        "id": 3,
+                        "name": "Facial Powder Z",
+                        "price": 900,
+                        "category": "Makeup"
+                    },
+                    "quantity": 1
                 },
-                {
-                    "id": 3,
-                    "name": "Product 3",
-                    "price": 900
+                "2": {
+                    "product": {
+                        "id": 2,
+                        "name": "Headband Y",
+                        "price": 1000,
+                        "category": "Fashion"
+                    },
+                    "quantity": 10
                 }
-            ]
+            }
         }
     ],
     "users": [
         {
-            "id" : 1,
-            "username" : "mandeuk",
-            "password" : "chichu",
-            "firstname" : "Jennie",
-            "middlename" : "RubyJane",
-            "lastname" : "Kim",
-            "email" : "kimjennie@samplemail.com",
-            "birthdate" : "01/26/1995",
-            "interests" : ["Playing with Kuma"]
+            "id": 1,
+            "username": "mandeuk",
+            "password": "chichu",
+            "firstname": "Jennie",
+            "middlename": "RubyJane",
+            "lastname": "Kim",
+            "email": "kimjennie@samplemail.com",
+            "birthdate": "01/26/1995",
+            "interests": "Playing with Kuma"
+        },
+        {
+            "id": 2,
+            "username": "chichu",
+            "password": "chichu",
+            "firstname": "Jennie",
+            "middlename": "RubyJane",
+            "lastname": "Kim",
+            "email": "kimjennie@samplemail.com",
+            "birthdate": "01/26/1995",
+            "interests": "Playing with Kuma"
         }
     ]
 }

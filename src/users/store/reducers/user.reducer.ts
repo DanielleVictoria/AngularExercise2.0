@@ -2,16 +2,18 @@ import { User } from "../../../models/user";
 import * as fromActions from '../actions';
 
 export interface UserState {
-    user : User;
-    loggedin : boolean;
-    loading : boolean;
-    loaded : boolean;
+    users: User[];
+    currentUser: User;
+    loggedin: boolean;
+    loading: boolean;
+    loaded: boolean;
 }
 
-export const initialState : UserState = {
-    user : {
+export const initialState: UserState = {
+    users: [],
+    currentUser: {
         id: 0,
-        password : " ",
+        password: " ",
         username: " ",
         firstname: " ",
         middlename: " ",
@@ -19,56 +21,67 @@ export const initialState : UserState = {
         email: " ",
         birthdate: " "
     },
-    loggedin : false,
-    loading : false,
-    loaded : false
+    loggedin: false,
+    loading: false,
+    loaded: false
 }
 
-export function reducer (
+export function reducer(
     state = initialState,
-    action : fromActions.UsersAction
-) : UserState {
+    action: fromActions.UserAction
+): UserState {
 
     switch (action.type) {
 
-
-        case fromActions.LOGIN_USER : {
+        case fromActions.LOAD_USERS: {
             return {
                 ...state,
-                loading : true,
-                loaded : false
+                loading: true,
+                loaded: false
             }
         }
 
-        case fromActions.LOGIN_USER_SUCCESS : {
+        case fromActions.LOGIN_USER_SUCCESS: {
             const user = action.payload;
             return {
                 ...state,
-                user,
-                loaded : true,
-                loading : false,
-                loggedin : true
+                currentUser: user,
+                loaded: true,
+                loading: false,
+                loggedin: true
             }
         }
 
-        case fromActions.LOGIN_USER_FAILURE : {
+        case fromActions.LOAD_USERS_SUCCESS: {
+            const users = action.payload;
             return {
                 ...state,
-                loaded : false,
-                loading : false,
-                loggedin : false
+                users,
+                loaded: true,
+                loading: false,
             }
         }
 
-        default : {
+        case fromActions.LOAD_USERS_FAILURE:
+        case fromActions.LOGIN_USER_FAILURE: {
+            return {
+                ...state,
+                loaded: false,
+                loading: false,
+                loggedin: false
+            }
+        }
+
+        default: {
             return state;
         }
     }
 }
 
-export const getUser = (state : UserState) => state.user;
-export const getUserLoading = (state : UserState) => state.loading;
-export const getUserLoaded = (state : UserState) => state.loaded;
-export const getUserLoggedIn = (state : UserState) => state.loggedin;
+export const getUsers = (state: UserState) => state.users;
+export const getCurrentUser = (state: UserState) => state.currentUser;
+export const getUserLoading = (state: UserState) => state.loading;
+export const getUserLoaded = (state: UserState) => state.loaded;
+export const getUserLoggedIn = (state: UserState) => state.loggedin;
 
 

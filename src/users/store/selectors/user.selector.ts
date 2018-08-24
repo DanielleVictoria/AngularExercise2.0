@@ -4,12 +4,17 @@ import * as fromReducer from '../reducers/user.reducer';
 
 export const getUserState = createSelector (
     fromFeature.getUsersState,
-    (state : fromFeature.UserState) => state.user
+    (state : fromFeature.UserState) => state.userState
 );
 
-export const getUser = createSelector (
+export const getUsers = createSelector (
     getUserState,
-    fromReducer.getUser
+    fromReducer.getUsers
+);
+
+export const getCurrentUser = createSelector (
+    getUserState,
+    fromReducer.getCurrentUser
 );
 
 export const getUserLoggedIn = createSelector (

@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { RouterLink} from '@angular/router';
 
 @Component({
-    selector: 'shoppingcart-main',
-    templateUrl: 'shoppingcart.component.html'
+    selector: 'navbar',
+    templateUrl: 'navbar.component.html'
 })
 
-export class ShoppingCartComponent implements OnInit {
+export class NavbarComponent implements OnInit {
     constructor() {
     }
     ngOnInit() {

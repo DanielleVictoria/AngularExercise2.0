@@ -1,14 +1,9 @@
 import { Product } from "./product";
+import { User } from "./user";
 
 export class Cart {
-    id : number;
-    products : Product[];
-}
-
-/*
-
-export interface sampleCart {
     id: number;
+    user : User;
     products: {
         [productID: number]: {
             product: Product,
@@ -16,8 +11,3 @@ export interface sampleCart {
         };
     }
 }
-
-
-
-
-*/

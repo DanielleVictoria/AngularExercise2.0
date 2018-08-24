@@ -1,5 +1,5 @@
 import { Cart } from "../../../models/cart";
-import * as fromCarts from "../actions/carts.action";
+import * as fromActions from "../actions/carts.action";
 
 export interface CartsState {
     entities : {
@@ -15,27 +15,24 @@ export const initialState : CartsState = {
     loading: false
 }
 
-export function reducer (state = initialState, action : fromCarts.CartsAction) : CartsState {
+export function reducer (state = initialState, action : fromActions.CartsAction) : CartsState {
     
     switch (action.type) {
-        
-        case fromCarts.LOAD_CART : {
-            console.log ('LOAD_CART');
+    
+        case fromActions.LOAD_CART : {
+
             return {
                 ...state,
                 loading : true
             }
         }
 
-        case fromCarts.LOAD_CART_SUCCESS : {
-            console.log ('LOAD_CART_SUCCESS');
-            const payload = action.payload;
-
+        case fromActions.LOAD_CART_SUCCESS : {
+            const cart = action.payload;
             const entities = {
                 ...state.entities,
-                [payload.id] : payload
+                [cart.id] : cart
             };
-
             return {
                 ...state,
                 loaded : true,
@@ -44,12 +41,17 @@ export function reducer (state = initialState, action : fromCarts.CartsAction) :
             }
         }
 
-        case fromCarts.LOAD_CART_FAIL : {
+        case fromActions.LOAD_CART_FAIL : {
             return {
                 ...state,
                 loaded : true,
                 loading : false
             }
+        }
+
+        case fromActions.REMOVE_FROMCART_SUCCESS : {
+            const product = action.payload;
+            //const { state.entities[product.id] : removed , ...entities} = state.entities;
         }
         default : 
             return state;

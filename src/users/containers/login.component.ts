@@ -3,6 +3,8 @@ import * as fromStore from '../store';
 import { Store } from '@ngrx/store';
 import { User } from '../../models/user';
 import { UserService } from '../store/services/users.service';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'login',
@@ -10,16 +12,20 @@ import { UserService } from '../store/services/users.service';
 })
 
 export class LoginComponent implements OnInit {
+
+    users : User[];
+
     constructor(
         private store: Store<fromStore.UserState>,
-        private userService : UserService
+        private userService : UserService,
+        private router : Router
     ) { }
 
     ngOnInit() {
 
     }
 
-    attemptLogin(event : {username,password}) {
+    attemptLogin(event : {username : string,password : string}) {
         
         if (!event.username && !event.password) {
             window.alert ("Please fill up the form");
@@ -36,11 +42,25 @@ export class LoginComponent implements OnInit {
             return;
         }
 
-        this.store.dispatch (new fromStore.VerifyUser(event));
+        this.store.select (fromStore.getUsers)
+            .subscribe((users) => this.users = users);
+        
+        for (let user of this.users) {
+            if (user.username == event.username) {
+                if (user.password == event.password) {
+                    console.log ("USER TO LOGIN : ", user);
+                    this.store.dispatch (new fromStore.LoginUser(user));
+                    this.router.navigate (['/shop']);
+                    return;
+                }
+                window.alert ("Wrong Password");
+                return;
+            }
+        }
 
+        window.alert ("No Username exists");
     }
 
     forgotPassword() {
-        console.log ("Go to Forgot Password");
     }
 }

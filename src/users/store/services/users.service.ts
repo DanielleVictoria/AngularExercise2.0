@@ -10,21 +10,20 @@ const USERS_API = 'http://localhost:3000/users';
 export class UserService {
     constructor(private httpClient: HttpClient) { }
 
-    // get a user according to id
-    getUser(id: number): Observable<User> {
+    // get a user according to a property
+    getUserbyProperty(command: string): Observable<User> {
         return this.httpClient
-            .get<User>(`${USERS_API}/${id}`)
+            .get<User>(`${USERS_API}?${command}`)
             .pipe(
                 catchError((error: any) => Observable.throw(error.json()))
             );
     }
 
-    // get a user according to a property
-    getUserbyProperty(property: string, value: string): Observable<User> {
+    getUsers(): Observable<User[]> {
         return this.httpClient
-            .get<User>(`${USERS_API}?${property}=${value}`)
+            .get<User[]>(USERS_API)
             .pipe(
                 catchError((error: any) => Observable.throw(error.json()))
-            );
+            )
     }
 }
