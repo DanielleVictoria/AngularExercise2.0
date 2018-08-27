@@ -1,25 +1,21 @@
-<div class="well well-sm 
-        col-md-3 col-sm-5 
-        col-xs-12 
-        productview" *ngIf='product'>
-    <div style="height : 200px">
-        <img style="width: 100%;max-height: 100%" class="media-object" src="https://image.freepik.com/free-vector/online-internet-website-shopping-icons-set-of-product-search-order-payment-electronic-wallet-and-home-delivery-vector-illustration_1284-2136.jpg"
-            alt="...">
-    </div>
+<div class='' *ngIf='product'>
+
+    <span class="label label-info">{{product.category}}</span>
+
+    <!-- picture -->
+    <img class="img-responsive img-rounded" src="https://image.freepik.com/free-vector/online-internet-website-shopping-icons-set-of-product-search-order-payment-electronic-wallet-and-home-delivery-vector-illustration_1284-2136.jpg"
+        alt="Responsive image">
+
+    <!-- information-->
+    <strong><h4>{{ product.name }}</h4></strong>
+    PHP {{ product.price }}<br>
+
     <hr>
-    <h4>{{ product.name }}</h4>
-    <table class='col-md-12'>
-        <tr>
-            <td align="left">
-                PHP {{ product.price }}
-            </td>
-            <td align="right">
-                <div>
-                    <button (click)='emitProduct()' type="button btn-default btn-sm" class="btn btn-default">
-                        <ng-content></ng-content>
-                    </button>
-                </div>
-            </td>
-        </tr>
-    </table>
+
+    <!-- control -->
+
+    <div class='container-fluid'>
+        <ng-content select='.content1'></ng-content>
+        <ng-content select='.content2'></ng-content>
+    </div>
 </div>

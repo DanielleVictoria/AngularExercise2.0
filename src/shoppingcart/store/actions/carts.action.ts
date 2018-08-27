@@ -2,6 +2,7 @@ import { Action } from "@ngrx/store";
 import { Cart } from "../../../models/cart";
 import { User } from "../../../models/user";
 import { Product } from "../../../models/product";
+import { ProductEntity } from "../../../models/productEntity";
 
 export type CartsAction =
     | LoadCart
@@ -10,6 +11,9 @@ export type CartsAction =
     | RemoveFromCart
     | RemoveFromCartSuccess
     | RemoveFromCartFail
+    | AddToCart
+    | AddToCartSuccess
+    | AddToCartFail
     ;
 
 // --------------------------------------- LOADING ------------------------------------------------------
@@ -45,13 +49,32 @@ export class RemoveFromCart implements Action {
 
 export class RemoveFromCartSuccess implements Action {
     readonly type = REMOVE_FROMCART_SUCCESS;
-    
-    // unsure
-    constructor (public payload : Product) {}
+    constructor (public payload : Cart) {
+    }
 }
 
 export class RemoveFromCartFail implements Action {
     readonly type = REMOVE_FROMCART_FAILURE;
+    constructor (public payload : any) {}
+}
 
+// --------------------------------------- ADDING ------------------------------------------------------
+export const ADD_TOCART = '[Carts] Adding to Cart';
+export const ADD_TOCART_SUCCESS = '[Carts] Adding to Cart Success';
+export const ADD_TOCART_FAILURE = '[Carts] Adding to Cart Failure';
+
+export class AddToCart implements Action {
+    readonly type = ADD_TOCART;
+    constructor (public payload : Product) {}
+}
+
+export class AddToCartSuccess implements Action {
+    readonly type = ADD_TOCART_SUCCESS;
+    constructor (public payload : Cart) {
+    }
+}
+
+export class AddToCartFail implements Action {
+    readonly type = ADD_TOCART_FAILURE;
     constructor (public payload : any) {}
 }

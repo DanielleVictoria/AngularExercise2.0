@@ -15,35 +15,41 @@ Pallete Colors :
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'rosario';
+  src: 
+    url('./assets/fonts/rosario.otf') format('opentype');
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'audrey';
+  src:
+    url('./assets/fonts/Audrey-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   height: 100%;
   width: 100%;
-  margin: 0px;
-  padding: 0;
   color: #333;
   background: #aa6f73;
-  /* display: flex; */
 }
 
 .header {
-  font-family: 'cornerstone';
+  font-family: 'rosario';
   position: relative;
   text-align: center;
   padding: 10px 0;
-
-  /* Option A */ 
-  /*
-  background: #f6e0b5;
-  color: #eb997a;
-  */
-
-  /* Option B */
   color: #f6e0b5;
 }
 
 .footer {
   border-radius: 5px;
-  font-family: 'cornerstone';
+  font-family: 'rosario';
   text-align: center;
   background: #eb997a;
   color: #f6e0b5;
@@ -60,7 +66,7 @@ body {
   border-radius: 5px;
   margin : 10px;
   background-color : #eb997a;
-  font-family: 'cornerstone';
+  font-family: 'rosario';
 }
 
 .nav> li > a {
@@ -86,10 +92,22 @@ body {
 }
 
 .productview {
-  /*margin-left: 43px;
-  margin-right : 43px;*/
-  background-color : #eb997a;
+  background-color : #e0cca4;
   font-family: 'cornerstone';
   color : #644547;
+  box-shadow: 5px 10px 18px #888888;
+  padding : 10px;
+  margin-bottom: 15px;
+}
+
+.filter {
+  background-color: #eb997a; 
+  border-radius: 5px;
+  padding : 10px;
+}
+
+input[type='text'] {
+  width : 100%;
+  box-sizing:border-box;
 }
 

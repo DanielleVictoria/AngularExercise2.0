@@ -1,122 +1,128 @@
 {
-    "products": [
-        {
+  "products": [
+    {
+      "id": 1,
+      "name": "Lotion X",
+      "price": 1200,
+      "category": "Healthcare"
+    },
+    {
+      "id": 2,
+      "name": "Headband Y",
+      "price": 1000,
+      "category": "Fashion"
+    },
+    {
+      "id": 3,
+      "name": "Facial Powder Z",
+      "price": 900,
+      "category": "Makeup"
+    },
+    {
+      "id": 4,
+      "name": "CD A",
+      "price": 900,
+      "category": "Entertainment"
+    },
+    {
+      "id": 5,
+      "name": "Fifty Shades of Grey",
+      "price": 900,
+      "category": "Entertainment"
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "user": {
+        "id": 1,
+        "username": "mandeuk",
+        "password": "chichu",
+        "firstname": "Jennie",
+        "middlename": "RubyJane",
+        "lastname": "Kim",
+        "email": "kimjennie@samplemail.com",
+        "birthdate": "01/26/1995",
+        "interests": "Playing with Kuma"
+      },
+      "products": {
+        "1": {
+          "product": {
             "id": 1,
             "name": "Lotion X",
             "price": 1200,
             "category": "Healthcare"
+          },
+          "quantity": 3
         },
-        {
+        "2": {
+          "product": {
             "id": 2,
             "name": "Headband Y",
             "price": 1000,
             "category": "Fashion"
+          },
+          "quantity": 5
+        }
+      }
+    },
+    {
+      "id": 2,
+      "user": {
+        "id": 2,
+        "username": "chichu",
+        "password": "chichu",
+        "firstname": "Jennie",
+        "middlename": "RubyJane",
+        "lastname": "Kim",
+        "email": "kimjennie@samplemail.com",
+        "birthdate": "01/26/1995",
+        "interests": "Playing with Kuma"
+      },
+      "products": {
+        "2": {
+          "product": {
+            "id": 2,
+            "name": "Headband Y",
+            "price": 1000,
+            "category": "Fashion"
+          },
+          "quantity": 10
         },
-        {
+        "3": {
+          "product": {
             "id": 3,
             "name": "Facial Powder Z",
             "price": 900,
             "category": "Makeup"
-        },
-        {
-            "id": 4,
-            "name": "CD A",
-            "price": 900,
-            "category": "Entertainment"
+          },
+          "quantity": 1
         }
-    ],
-    "carts": [
-        {
-            "id": 1,
-            "user": {
-                "id": 1,
-                "username": "mandeuk",
-                "password": "chichu",
-                "firstname": "Jennie",
-                "middlename": "RubyJane",
-                "lastname": "Kim",
-                "email": "kimjennie@samplemail.com",
-                "birthdate": "01/26/1995",
-                "interests": "Playing with Kuma"
-            },
-            "products": {
-                "1" : {
-                    "product": {
-                        "id": 1,
-                        "name": "Lotion X",
-                        "price": 1200,
-                        "category": "Healthcare"
-                    },
-                    "quantity": 3
-                },
-                "2": {
-                    "product": {
-                        "id": 2,
-                        "name": "Headband Y",
-                        "price": 1000,
-                        "category": "Fashion"
-                    },
-                    "quantity": 5
-                }
-            }
-        },
-        {
-            "id": 2,
-            "user": {
-                "id": 2,
-                "username": "chichu",
-                "password": "chichu",
-                "firstname": "Jennie",
-                "middlename": "RubyJane",
-                "lastname": "Kim",
-                "email": "kimjennie@samplemail.com",
-                "birthdate": "01/26/1995",
-                "interests": "Playing with Kuma"
-            },
-            "products": {
-                "3": {
-                    "product": {
-                        "id": 3,
-                        "name": "Facial Powder Z",
-                        "price": 900,
-                        "category": "Makeup"
-                    },
-                    "quantity": 1
-                },
-                "2": {
-                    "product": {
-                        "id": 2,
-                        "name": "Headband Y",
-                        "price": 1000,
-                        "category": "Fashion"
-                    },
-                    "quantity": 10
-                }
-            }
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "username": "mandeuk",
-            "password": "chichu",
-            "firstname": "Jennie",
-            "middlename": "RubyJane",
-            "lastname": "Kim",
-            "email": "kimjennie@samplemail.com",
-            "birthdate": "01/26/1995",
-            "interests": "Playing with Kuma"
-        },
-        {
-            "id": 2,
-            "username": "chichu",
-            "password": "chichu",
-            "firstname": "Jennie",
-            "middlename": "RubyJane",
-            "lastname": "Kim",
-            "email": "kimjennie@samplemail.com",
-            "birthdate": "01/26/1995",
-            "interests": "Playing with Kuma"
-        }
-    ]
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "mandeuk",
+      "password": "chichu",
+      "firstname": "Jennie",
+      "middlename": "RubyJane",
+      "lastname": "Kim",
+      "email": "kimjennie@samplemail.com",
+      "birthdate": "01/26/1995",
+      "interests": "Playing with Kuma"
+    },
+    {
+      "id": 2,
+      "username": "chichu",
+      "password": "chichu",
+      "firstname": "Jennie",
+      "middlename": "RubyJane",
+      "lastname": "Kim",
+      "email": "kimjennie@samplemail.com",
+      "birthdate": "01/26/1995",
+      "interests": "Playing with Kuma"
+    }
+  ]
 }

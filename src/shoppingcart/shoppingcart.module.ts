@@ -1,20 +1,15 @@
-// from angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-
-// from ngrx
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-
-// from projects
 import * as fromContainers from './containers';
 import * as fromComponents from './components';
 import * as fromServices from './services';
-
 import { NavbarComponent } from './components/navbar.component';
 import { reducers, effects } from './store';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -28,7 +23,8 @@ const routes: Routes = [
         HttpClientModule,
         RouterModule.forChild(routes),
         StoreModule.forFeature ('shoppingcart', reducers),
-        //EffectsModule.forFeature (effects);
+        //EffectsModule.forFeature (effects),
+        FormsModule
     ],
     exports: [
         NavbarComponent,

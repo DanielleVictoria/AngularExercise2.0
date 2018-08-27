@@ -11,6 +11,14 @@ const PRODUCTS_API = 'http://localhost:3000/products';
 export class ProductsService {
     constructor(private httpClient: HttpClient) { }
 
+    getProductswithProperty (command : string) : Observable<Product[]> {
+        return this.httpClient
+            .get<Product[]>(`${PRODUCTS_API}?string`)
+            .pipe(
+                catchError ((error : any) => Observable.throw(error.json()))
+            );
+    }
+
     getProducts(): Observable<Product[]> {
         return this.httpClient
             .get<Product[]>(PRODUCTS_API)

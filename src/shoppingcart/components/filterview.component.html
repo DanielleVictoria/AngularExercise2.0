@@ -1,0 +1,27 @@
+<div class='col-md-12 filter'>
+
+    <label>Filter</label>
+
+    <form (ngSubmit)='onSubmit()' #form='ngForm'>
+        <div class='form-group'>
+            <label>Product Category</label>
+            <select name='category' class="form-control" [(ngModel)]='filterModel.category'>
+                <option *ngFor='let category of categories' [value]='category'>{{category}}</option>
+            </select>
+        </div>
+        <div class='form-group'>
+            <label>Price Range</label>
+            <select name='pricerange' class="form-control" [(ngModel)]='filterModel.pricerange'>
+                <option *ngFor='let range of pricerange' [value]='range'>{{range}}</option>
+            </select>
+        </div>
+
+        <label>Sort Product Name</label>
+        <div class='form-group'>
+            <select name='sort' class="form-control" [(ngModel)]='filterModel.sort'>
+                <option *ngFor='let type of sort' [value]='type'>{{type}}</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default col-md-12">Submit</button>
+    </form>
+</div>

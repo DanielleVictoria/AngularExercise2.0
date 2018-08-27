@@ -1,59 +1,70 @@
 import { Cart } from "../../../models/cart";
 import * as fromActions from "../actions/carts.action";
+import * as fromUserStore from '../../../users/store';
+import { Observable } from "rxjs";
+import { User } from "../../../models/user";
+import { Store } from "@ngrx/store";
 
 export interface CartsState {
-    entities : {
-        [id : number] : Cart
+    entities: {
+        [id: number]: Cart
     };
-    loaded : boolean;
-    loading : boolean;
+    loaded: boolean;
+    loading: boolean;
 }
 
-export const initialState : CartsState = {
+export const initialState: CartsState = {
     entities: {},
     loaded: false,
     loading: false
 }
 
-export function reducer (state = initialState, action : fromActions.CartsAction) : CartsState {
-    
-    switch (action.type) {
-    
-        case fromActions.LOAD_CART : {
+export function reducer(state = initialState, action: fromActions.CartsAction): CartsState {
 
+    switch (action.type) {
+
+        case fromActions.LOAD_CART: {
             return {
                 ...state,
-                loading : true
+                loading: true
             }
         }
 
-        case fromActions.LOAD_CART_SUCCESS : {
+        case fromActions.LOAD_CART_SUCCESS: {
             const cart = action.payload;
             const entities = {
                 ...state.entities,
-                [cart.id] : cart
+                [cart.id]: cart
             };
             return {
                 ...state,
-                loaded : true,
-                loading : false,
+                loaded: true,
+                loading: false,
                 entities
             }
         }
 
-        case fromActions.LOAD_CART_FAIL : {
+        case fromActions.LOAD_CART_FAIL: {
             return {
                 ...state,
-                loaded : true,
-                loading : false
+                loaded: true,
+                loading: false
             }
         }
 
-        case fromActions.REMOVE_FROMCART_SUCCESS : {
-            const product = action.payload;
-            //const { state.entities[product.id] : removed , ...entities} = state.entities;
+        case fromActions.ADD_TOCART_SUCCESS:
+        case fromActions.REMOVE_FROMCART_SUCCESS: {
+            const cart = action.payload;
+            const entities = {
+                ...state.entities,
+                [cart.id]: cart
+            }
+            return {
+                ...state,
+                entities
+            }
         }
-        default : 
+        default:
             return state;
     }
 }
