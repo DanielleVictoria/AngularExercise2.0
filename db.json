@@ -53,16 +53,34 @@
             "price": 1200,
             "category": "Healthcare"
           },
-          "quantity": 3
+          "quantity": 1
         },
-        "2": {
+        "3": {
           "product": {
-            "id": 2,
-            "name": "Headband Y",
-            "price": 1000,
-            "category": "Fashion"
+            "id": 3,
+            "name": "Facial Powder Z",
+            "price": 900,
+            "category": "Makeup"
           },
-          "quantity": 5
+          "quantity": 1
+        },
+        "4": {
+          "product": {
+            "id": 4,
+            "name": "CD A",
+            "price": 900,
+            "category": "Entertainment"
+          },
+          "quantity": 1
+        },
+        "5": {
+          "product": {
+            "id": 5,
+            "name": "Fifty Shades of Grey",
+            "price": 900,
+            "category": "Entertainment"
+          },
+          "quantity": 4
         }
       }
     },
@@ -80,6 +98,15 @@
         "interests": "Playing with Kuma"
       },
       "products": {
+        "1": {
+          "product": {
+            "id": 1,
+            "name": "Lotion X",
+            "price": 1200,
+            "category": "Healthcare"
+          },
+          "quantity": 3
+        },
         "2": {
           "product": {
             "id": 2,
@@ -87,7 +114,7 @@
             "price": 1000,
             "category": "Fashion"
           },
-          "quantity": 10
+          "quantity": 8
         },
         "3": {
           "product": {

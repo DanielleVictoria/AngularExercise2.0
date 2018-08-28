@@ -1,0 +1,27 @@
+<navbar></navbar>
+<br>
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Items</th>
+        <th>Item Price</th>
+        <th>Quantity</th>
+        <th>Price (w/ Quantity)</th>
+    </tr>
+    <tr *ngFor='let product of products; index as i'>
+        <th>{{i + 1}}</th>
+        <td>{{product.name}}</td>
+        <td>Php {{product.price}}</td>
+        <td>{{getQuantity(i)}}</td>
+        <td>Php {{getQuantity(i) * product.price}}</td>
+    </tr>
+    <tr>
+        <th>Overall Price : </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Php {{computeOverall()}}</td>
+    </tr>
+
+</table>
+

@@ -2,23 +2,29 @@
 <br>
 <div class='container-fluid'>
 
+    <!-- for viewing the filter-->
     <div name='Filter' class='col-md-2'>
         <filterview (filter)='filterProducts($event)'></filterview>
     </div>
 
+    <!-- for viewing the products-->
     <div name='Products' class='col-md-10'>
-        <div *ngFor='let product of products$ | async'>
+        <div class='' *ngFor='let product of products$ | async; index as i'>
+            <!-- make a row consisting of 3 columns -->
+            <div *ngIf='i % 3 == 0'>
+                <div class='row'>
+                </div>
+            </div>
+            <!-- view the product -->
             <productview class='productview col-md-offset-1 col-md-3' [product]='product' (productEmitter)='addToCart($event)'>
 
-                <!-- content 1 - Add To Cart Button -->
-                <quantityselector class='content1'></quantityselector>
-
-                <!-- content 2 - Add To Cart Button -->
-                <button (click)='addToCart(product)' type="button btn-default btn-sm" class="content2 btn btn-default">
+                <!-- content 1 - quantity selector -->
+                <quantityselector class='content1 col-md-12' [product]='product' (productEntity)='addToCart($event)'>
                     <span class="content1 glyphicon glyphicon-shopping-cart"></span>
-                </button>
+                </quantityselector>
 
             </productview>
+
         </div>
     </div>
 </div>

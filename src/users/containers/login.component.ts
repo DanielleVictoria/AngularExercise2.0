@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private store: Store<fromUserStore.UserState | fromShoppingCartStore.ShoppingCartState>,
-        //private userService: UserService,
         private router: Router
     ) { }
 
@@ -43,14 +42,14 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/shop']);
         }
 
+        let loggedin : boolean;
+        this.store.select(fromUserStore.getUserLoggedIn).subscribe(loggedin => loggedin);
         
-
         // Load all of the users
         this.store.dispatch (new fromUserStore.LoadUsers);
 
         // set the users to a variable
-        this.store.select(fromUserStore.getUsers)
-        .subscribe((users) => this.users = users);
+        this.store.select(fromUserStore.getUsers).subscribe((users) => this.users = users);
     }
 
     attemptLogin(event: { username: string, password: string }) {

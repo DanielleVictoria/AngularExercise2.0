@@ -46,8 +46,6 @@ export function reducer(
             return {
                 ...state,
                 currentUser: user,
-                loaded: true,
-                loading: false,
                 loggedin: true
             }
         }
@@ -62,12 +60,16 @@ export function reducer(
             }
         }
 
-        case fromActions.LOAD_USERS_FAILURE:
-        case fromActions.LOGIN_USER_FAILURE: {
+        case fromActions.LOAD_USERS_FAILURE:{
             return {
                 ...state,
                 loaded: false,
                 loading: false,
+            }
+        }
+        case fromActions.LOGIN_USER_FAILURE: {
+            return {
+                ...state,
                 loggedin: false
             }
         }

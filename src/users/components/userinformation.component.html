@@ -1,0 +1,83 @@
+<navbar></navbar>
+<br>
+<div *ngIf='!isEditing; else showform'>
+    <table class="table">
+        <tr>
+            <th>Username : </th>
+            <td>{{user.username}}</td>
+        </tr>
+        <tr>
+            <th>First Name : </th>
+            <td>{{user.firstname}}</td>
+        </tr>
+        <tr>
+            <th>Middle Name : </th>
+            <td>{{user.middlename}}</td>
+        </tr>
+        <tr>
+            <th>Last Name : </th>
+            <td>{{user.lastname}}</td>
+        </tr>
+        <tr>
+            <th>Email : </th>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <th>Birthdate : </th>
+            <td>{{user.birthdate}}</td>
+        </tr>
+        <tr>
+            <th>Interests : </th>
+            <td>{{user?.interests}}</td>
+        </tr>
+    </table>
+
+    <button class="content2 btn btn-default btn-block col-md-12" type="button" tooltip="Edit Information" [delay]="500" placement="left"
+        (click)="toggleEdit()">
+        <span class="content1 glyphicon glyphicon glyphicon-pencil"></span>
+    </button>
+</div>
+<ng-template #showform>
+    <form (ngSubmit)="onSubmit()" #userinfoForm="ngForm">
+        <table class="table">
+            <tr>
+                <th>Username : </th>
+                <td>
+                    <input name="username" type="text" class="form-control" [(ngModel)]="modelUser.username" #username='ngModel' required>
+                </td>
+            </tr>
+            <tr>
+                <th>First Name : </th>
+                <td>
+                    <input name="firstname" type="text" class="form-control" [(ngModel)]="modelUser.firstname" #firstname='ngModel' required>
+                </td>
+            </tr>
+            <tr>
+                <th>Middle Name : </th>
+                <td>
+                    <input name="middlename" type="text" class="form-control" [(ngModel)]="modelUser.middlename" #middlename='ngModel' required>
+                </td>
+            </tr>
+            <tr>
+                <th>Last Name : </th>
+                <td>
+                    <input name="lastname" type="text" class="form-control" [(ngModel)]="modelUser.lastname" #lastname='ngModel' required>
+                </td>
+            </tr>
+            <tr>
+                <th>Email : </th>
+                <td>
+                    <input name="email" type="text" class="form-control" [(ngModel)]="modelUser.email" #email='ngModel' required>
+                </td>
+            </tr>
+            <tr>
+                <th>Birthdate : </th>
+                <td>{{user.birthdate}}</td>
+            </tr>
+            <tr>
+                <th>Interests : </th>
+                <td>{{user?.interests}}</td>
+            </tr>
+        </table>
+    </form>
+</ng-template>

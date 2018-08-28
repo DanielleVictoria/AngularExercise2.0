@@ -8,6 +8,8 @@ import { Product } from '../../models/product';
 import { User } from '../../models/user';
 import { CartService } from '../services';
 import { FilterModel } from '../components';
+import { ProductEntity } from '../../models/productEntity';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +23,7 @@ export class CartComponent implements OnInit {
 
     constructor(
         private store: Store<fromShoppingCartStore.ShoppingCartState | fromUserStore.UserState>,
-        private cartService : CartService
+        private router : Router
     ) { }
 
     ngOnInit() {
@@ -36,5 +38,13 @@ export class CartComponent implements OnInit {
     filterProducts (event : FilterModel) {
         this.store.dispatch(new fromShoppingCartStore.LoadCart(this.currentUser)); 
         this.cartProducts$ = this.store.select (fromShoppingCartStore.filterCart(event));
+    }
+
+    editProductQuantity(event : ProductEntity) {
+        this.store.dispatch(new fromShoppingCartStore.EditProductQuantity(event));
+    }
+
+    checkout() {
+        this.router.navigate (['/checkout']);
     }
 }

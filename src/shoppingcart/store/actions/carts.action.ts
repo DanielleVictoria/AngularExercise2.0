@@ -14,6 +14,9 @@ export type CartsAction =
     | AddToCart
     | AddToCartSuccess
     | AddToCartFail
+    | EditProductQuantity
+    | EditProductQuantitySuccess
+    | EditProductQuantityFail
     ;
 
 // --------------------------------------- LOADING ------------------------------------------------------
@@ -65,7 +68,7 @@ export const ADD_TOCART_FAILURE = '[Carts] Adding to Cart Failure';
 
 export class AddToCart implements Action {
     readonly type = ADD_TOCART;
-    constructor (public payload : Product) {}
+    constructor (public payload : ProductEntity) {}
 }
 
 export class AddToCartSuccess implements Action {
@@ -76,5 +79,26 @@ export class AddToCartSuccess implements Action {
 
 export class AddToCartFail implements Action {
     readonly type = ADD_TOCART_FAILURE;
+    constructor (public payload : any) {}
+}
+
+// --------------------------------------- EDIT ------------------------------------------------------
+export const EDIT_PRODUCTQUANTITY = '[Carts] Edit Product Quantity';
+export const EDIT_PRODUCTQUANTITY_SUCCESS = '[Carts] Edit Product Quantity Success';
+export const EDIT_PRODUCTQUANTITY_FAILURE = '[Carts] Edit Product Quantity Failure';
+
+export class EditProductQuantity implements Action {
+    readonly type = EDIT_PRODUCTQUANTITY;
+    constructor (public payload : ProductEntity) {}
+}
+
+export class EditProductQuantitySuccess implements Action {
+    readonly type = EDIT_PRODUCTQUANTITY_SUCCESS;
+    constructor (public payload : Cart) {
+    }
+}
+
+export class EditProductQuantityFail implements Action {
+    readonly type = EDIT_PRODUCTQUANTITY_FAILURE;
     constructor (public payload : any) {}
 }

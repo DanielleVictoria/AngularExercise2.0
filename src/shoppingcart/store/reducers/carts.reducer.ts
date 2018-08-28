@@ -53,6 +53,7 @@ export function reducer(state = initialState, action: fromActions.CartsAction): 
         }
 
         case fromActions.ADD_TOCART_SUCCESS:
+        case fromActions.EDIT_PRODUCTQUANTITY_SUCCESS:
         case fromActions.REMOVE_FROMCART_SUCCESS: {
             const cart = action.payload;
             const entities = {

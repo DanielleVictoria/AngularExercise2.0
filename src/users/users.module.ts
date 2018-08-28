@@ -11,9 +11,12 @@ import * as fromContainers from './containers';
 import * as fromComponents from './components';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule} from '@angular/forms';
+import { ShoppingCartModule } from '../shoppingcart/shoppingcart.module';
+import { TooltipModule } from 'ngx-bootstrap';
 
 const routes: Routes = [
-    {path : 'login', component : fromContainers.LoginComponent}
+    {path : 'login', component : fromContainers.LoginComponent},
+    {path : 'profile', component : fromComponents.UserInformationComponent}
 ];
 
 @NgModule({
@@ -24,7 +27,9 @@ const routes: Routes = [
         StoreModule.forFeature ('UserFeature',reducers),
         EffectsModule.forFeature (effects),
         BrowserModule,
-        FormsModule
+        FormsModule,
+        ShoppingCartModule,
+        TooltipModule.forRoot()
     ],
     exports: [
         RouterModule,

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as fromStore from '../store';
 import { Product } from '../../models/product';
 import { Observable } from 'rxjs';
 import { FilterModel } from '../components';
+import { ProductEntity } from '../../models/productEntity';
 
 @Component({
     selector: 'shop',
@@ -16,7 +17,7 @@ export class ShopComponent implements OnInit {
     products$ : Observable<Product[]>;
 
     constructor(
-        private store: Store<fromStore.ShoppingCartState>
+    private store: Store<fromStore.ShoppingCartState>
     ) { }
 
     ngOnInit() {
@@ -24,7 +25,8 @@ export class ShopComponent implements OnInit {
         this.products$ = this.store.select (fromStore.getAllProducts);
     }
 
-    addToCart(event : Product) {
+    addToCart(event : ProductEntity) {
+        console.log ("Add to Cart", event);
         this.store.dispatch(new fromStore.AddToCart(event));
     }
 

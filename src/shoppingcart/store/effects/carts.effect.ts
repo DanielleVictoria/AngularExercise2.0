@@ -8,6 +8,7 @@ import * as fromSelector from '../selectors';
 import { UserState } from "../../../users/store";
 import { ShoppingCartState } from "../reducers";
 import { Store } from "@ngrx/store";
+import { Cart } from "../../../models/cart";
 
 @Injectable()
 export class CartsEffects {
@@ -54,24 +55,42 @@ export class CartsEffects {
     @Effect()
     addProductToCart = this.action$.ofType(cartActions.ADD_TOCART).pipe(
         map((action: cartActions.AddToCart) => action.payload),
-        switchMap((product) => {
+        switchMap((productentity) => {
+
             // select current cart
-            let cart;
+            let cart : Cart;
             this.store.select(fromSelector.getCart).subscribe(data => cart = data);
-    
-            // dapat cart.products[x].product = product
+
             let products = {
-                ...cart.products,
-                //[product.id] : product
+                [productentity.product.id.toString()] : productentity,
+                ...cart.products
             }
 
-            //cart.products = products;
+            cart.products = products;
 
-            //console.log (cart.products);
-
+            // update the cart
             return this.cartsService.updateCart(cart).pipe(
                 map(cart => new cartActions.AddToCartSuccess(cart)),
                 catchError(error => of(new cartActions.AddToCartFail(error)))
+            );
+        })
+    );
+
+    @Effect()
+    editProductQuantity = this.action$.ofType(cartActions.EDIT_PRODUCTQUANTITY).pipe(
+        map((action: cartActions.EditProductQuantity) => action.payload),
+        switchMap((productentity) => {
+
+            // select current cart
+            let cart : Cart;
+            this.store.select(fromSelector.getCart).subscribe(data => cart = data);
+
+            cart.products[productentity.product.id.toString()].quantity = productentity.quantity;
+
+            // update the cart
+            return this.cartsService.updateCart(cart).pipe(
+                map(cart => new cartActions.EditProductQuantitySuccess(cart)),
+                catchError(error => of(new cartActions.EditProductQuantityFail(error)))
             );
         })
     );

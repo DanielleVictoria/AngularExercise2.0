@@ -10,11 +10,12 @@ import { NavbarComponent } from './components/navbar.component';
 import { reducers, effects } from './store';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { TooltipModule } from 'ngx-bootstrap';
 
 const routes: Routes = [
     { path: 'shop', component: fromContainers.ShopComponent },
-    { path: 'cart', component: fromContainers.CartComponent }
+    { path: 'cart', component: fromContainers.CartComponent },
+    { path: 'checkout', component : fromComponents.CheckoutComponent} 
 ];
 
 @NgModule({
@@ -24,7 +25,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         StoreModule.forFeature ('shoppingcart', reducers),
         //EffectsModule.forFeature (effects),
-        FormsModule
+        FormsModule,
+        TooltipModule.forRoot()
     ],
     exports: [
         NavbarComponent,
