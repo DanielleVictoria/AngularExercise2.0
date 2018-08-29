@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Store } from '@ngrx/store';
-import { UserState, getCurrentUser } from '../store';
+import { UserState, getCurrentUser, EditUser } from '../store';
+import { NgForm } from '@angular/forms';
+import { ShoppingCartState, EditCartUser } from '../../shoppingcart/store';
 
 @Component({
     selector: 'userinformation',
@@ -15,7 +17,7 @@ export class UserInformationComponent implements OnInit {
     modelUser : User;
     
     constructor(
-        private store : Store<UserState>
+        private store : Store<UserState | ShoppingCartState>
     ) { }
 
     ngOnInit() {
@@ -24,11 +26,18 @@ export class UserInformationComponent implements OnInit {
     }
 
     toggleEdit() {
-        this.isEditing = !this.isEditing;
+        this.isEditing = !this.isEditing;   
     }
 
-    onSubmit() {
+    onSubmit(ngForm : NgForm) {
+        if (ngForm.invalid == true) {
+            window.alert ("Please fill out all of the boxes");
+            return;
+        }
 
+        this.store.dispatch ( new EditUser(this.modelUser));
+        this.store.dispatch ( new EditCartUser(this.modelUser));
+        this.toggleEdit();
     }
     
 }

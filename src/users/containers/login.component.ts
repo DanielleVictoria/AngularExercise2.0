@@ -27,26 +27,26 @@ export class LoginComponent implements OnInit {
         // skip login FOR TESTING ONLY
         if (this.testing) {
             let user: User = {
-                id: 1,
-                username: "mandeuk",
-                password: "chichu",
-                firstname: "Jennie",
-                middlename: "RubyJane",
-                lastname: "Kim",
-                email: "kimjennie@samplemail.com",
-                birthdate: "01/26/1995",
-                interests: "Playing with Kuma"
+                "id": 1,
+                "username": "mandeuk",
+                "password": "chichu",
+                "firstname": "Jennie",
+                "middlename": "RubyJane",
+                "lastname": "Kim",
+                "email": "kimjennie@samplemail.com",
+                "birthdate": "01/26/1995",
+                "interests": "Playing with Kuma"
             }
             this.store.dispatch(new fromUserStore.LoginUser(user));
             this.store.dispatch(new fromShoppingCartStore.LoadCart(user));
             this.router.navigate(['/shop']);
         }
 
-        let loggedin : boolean;
+        let loggedin: boolean;
         this.store.select(fromUserStore.getUserLoggedIn).subscribe(loggedin => loggedin);
-        
+
         // Load all of the users
-        this.store.dispatch (new fromUserStore.LoadUsers);
+        this.store.dispatch(new fromUserStore.LoadUsers);
 
         // set the users to a variable
         this.store.select(fromUserStore.getUsers).subscribe((users) => this.users = users);

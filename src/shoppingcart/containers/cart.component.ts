@@ -29,6 +29,7 @@ export class CartComponent implements OnInit {
     ngOnInit() {
         // get the products from the loaded cart
         this.cartProducts$ = this.store.select(fromShoppingCartStore.getCartProducts);
+        this.store.select(fromUserStore.getCurrentUser).subscribe(user => this.currentUser = user);
     }
 
     removeFromCart(event : Product) {

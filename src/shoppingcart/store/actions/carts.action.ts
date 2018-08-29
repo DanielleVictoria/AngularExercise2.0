@@ -17,7 +17,33 @@ export type CartsAction =
     | EditProductQuantity
     | EditProductQuantitySuccess
     | EditProductQuantityFail
+    | EditCartUser
+    | EditCartUserSuccess
+    | EditCartUserFail
+    | RemoveAllCartProducts
+    | RemoveAllCartProductsSuccess
+    | RemoveAllCartProductsFail
     ;
+
+// --------------------------------------- REMOVE CART PRODUCTS ------------------------------------------------------
+export const REMOVE_ALLCARTPRODUCTS = '[Carts] Remove All Cart Products';
+export const REMOVE_ALLCARTPRODUCTS_SUCCESS = '[Carts] Remove All Cart Products Success';
+export const REMOVE_ALLCARTPRODUCTS_FAIL = '[Carts] Remove All Cart Products Fail';
+
+export class RemoveAllCartProducts implements Action {
+    readonly type = REMOVE_ALLCARTPRODUCTS;
+    constructor() { }
+}
+
+export class RemoveAllCartProductsSuccess implements Action {
+    readonly type = REMOVE_ALLCARTPRODUCTS_SUCCESS;
+    constructor(public payload : Cart) { }
+}
+
+export class RemoveAllCartProductsFail implements Action {
+    readonly type = REMOVE_ALLCARTPRODUCTS_FAIL;
+    constructor() { }
+}
 
 // --------------------------------------- LOADING ------------------------------------------------------
 export const LOAD_CART = '[Carts] Load Cart';
@@ -100,5 +126,26 @@ export class EditProductQuantitySuccess implements Action {
 
 export class EditProductQuantityFail implements Action {
     readonly type = EDIT_PRODUCTQUANTITY_FAILURE;
+    constructor (public payload : any) {}
+}
+
+// --------------------------------------- CHANGE USER ------------------------------------------------------
+export const EDIT_CARTUSER = '[Carts] Edit Cart User';
+export const EDIT_CARTUSER_SUCCESS = '[Carts] Edit Cart User Success';
+export const EDIT_CARTUSER_FAILURE = '[Carts] Edit Cart User Failure';
+
+export class EditCartUser implements Action {
+    readonly type = EDIT_CARTUSER;
+    constructor (public payload : User) {}
+}
+
+export class EditCartUserSuccess implements Action {
+    readonly type = EDIT_CARTUSER_SUCCESS;
+    constructor (public payload : Cart) {
+    }
+}
+
+export class EditCartUserFail implements Action {
+    readonly type = EDIT_CARTUSER_FAILURE;
     constructor (public payload : any) {}
 }

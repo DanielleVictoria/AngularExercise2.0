@@ -116,4 +116,12 @@ input[type='number'] {
   padding : 0 !important;
 }
 
+textarea {
+  resize: vertical;
+}
+
+p {
+  text-align:justify;
+}
+
 

@@ -1,0 +1,16 @@
+<navbar></navbar>
+<br>
+<div class='col-md-offset-1 col-md-10' *ngFor='let transaction of (transactions | async)'>
+    <table class="table">
+        <tr>
+            <th>User : </th>
+            <td>{{user.username}}</td>
+        </tr>
+        <tr>
+            <th>Orders : </th>
+        </tr>
+        <tr>
+            {{transaction | json}}
+        </tr>
+    </table>
+</div>

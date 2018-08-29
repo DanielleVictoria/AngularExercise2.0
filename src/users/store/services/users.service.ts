@@ -26,4 +26,12 @@ export class UserService {
                 catchError((error: any) => Observable.throw(error.json()))
             )
     }
+
+    updateUser(user : User) : Observable<User> {
+        return this.httpClient
+            .put<User>(`${USERS_API}/${user.id}`, user)
+            .pipe(
+                catchError ((error : any) => Observable.throw (error.json()))
+            );
+    }
 }

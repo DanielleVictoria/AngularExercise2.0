@@ -41,6 +41,7 @@ export function reducer(
             }
         }
 
+        case fromActions.EDIT_USER_SUCCESS :
         case fromActions.LOGIN_USER_SUCCESS: {
             const user = action.payload;
             return {

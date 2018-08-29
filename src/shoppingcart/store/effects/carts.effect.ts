@@ -9,6 +9,7 @@ import { UserState } from "../../../users/store";
 import { ShoppingCartState } from "../reducers";
 import { Store } from "@ngrx/store";
 import { Cart } from "../../../models/cart";
+import { User } from "../../../models/user";
 
 @Injectable()
 export class CartsEffects {
@@ -92,6 +93,39 @@ export class CartsEffects {
                 map(cart => new cartActions.EditProductQuantitySuccess(cart)),
                 catchError(error => of(new cartActions.EditProductQuantityFail(error)))
             );
+        })
+    );
+
+    @Effect()
+    editCartUser = this.action$.ofType (cartActions.EDIT_CARTUSER).pipe(
+        map((action : cartActions.EditCartUser) => action.payload),
+        switchMap ((user : User) => {
+            // select current cart
+            let cart : Cart;
+            this.store.select(fromSelector.getCart).subscribe(data => cart = data);
+
+            cart.user = user;
+
+            return this.cartsService.updateCart(cart).pipe(
+                map ((cart) => new cartActions.EditCartUserSuccess(cart)),
+                catchError (error => of (new cartActions.EditCartUserFail(error)))
+            )
+        })
+    );
+
+    @Effect()
+    removeAllProductsfromCart = this.action$.ofType (cartActions.REMOVE_ALLCARTPRODUCTS).pipe(
+        switchMap (() => {
+            // select current cart
+            let cart : Cart;
+            this.store.select(fromSelector.getCart).subscribe(data => cart = data);
+
+            cart.products = {};
+
+            return this.cartsService.updateCart(cart).pipe(
+                map ((cart) => new cartActions.EditCartUserSuccess(cart)),
+                catchError (error => of (new cartActions.EditCartUserFail(error)))
+            )
         })
     );
 }

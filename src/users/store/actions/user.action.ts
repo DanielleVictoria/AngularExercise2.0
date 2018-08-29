@@ -8,6 +8,9 @@ export type UserAction =
     | LoadUsers
     | LoadUsersSuccess
     | LoadUsersFailure
+    | EditUser
+    | EditUserSuccess
+    | EditUserFail
     ;
 
 // --------------------------------------- LOGIN ------------------------------------------------------
@@ -28,9 +31,7 @@ export class LoginUserSuccess implements Action {
 
 export class LoginUserFailure implements Action {
     readonly type = LOGIN_USER_FAILURE;
-    constructor(public payload: any) { 
-        console.log (payload)
-    }
+    constructor(public payload: any) { }
 }
 
 // --------------------------------------- LOAD ------------------------------------------------------
@@ -55,7 +56,22 @@ export class LoadUsersFailure implements Action {
     }
 }
 
+// --------------------------------------- EDIT USER ------------------------------------------------------
+export const EDIT_USER = '[Users] Edit User';
+export const EDIT_USER_SUCCESS = '[Users] Edit User Success';
+export const EDIT_USER_FAIL = '[Users] Edit User Fail';
 
+export class EditUser implements Action {
+    readonly type = EDIT_USER;
+    constructor (public payload : User) {}
+}
 
+export class EditUserSuccess implements Action {
+    readonly type = EDIT_USER_SUCCESS;
+    constructor (public payload : User) {}
+}
 
-
+export class EditUserFail implements Action {
+    readonly type = EDIT_USER_FAIL;
+    constructor (public payload : any) {}
+}

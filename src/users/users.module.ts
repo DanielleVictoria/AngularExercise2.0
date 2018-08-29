@@ -13,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule} from '@angular/forms';
 import { ShoppingCartModule } from '../shoppingcart/shoppingcart.module';
 import { TooltipModule } from 'ngx-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 const routes: Routes = [
     {path : 'login', component : fromContainers.LoginComponent},
@@ -29,7 +30,9 @@ const routes: Routes = [
         BrowserModule,
         FormsModule,
         ShoppingCartModule,
-        TooltipModule.forRoot()
+        TooltipModule.forRoot(),
+        BsDatepickerModule.forRoot()
+
     ],
     exports: [
         RouterModule,

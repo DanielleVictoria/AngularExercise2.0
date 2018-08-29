@@ -1,9 +1,5 @@
 import { Cart } from "../../../models/cart";
 import * as fromActions from "../actions/carts.action";
-import * as fromUserStore from '../../../users/store';
-import { Observable } from "rxjs";
-import { User } from "../../../models/user";
-import { Store } from "@ngrx/store";
 
 export interface CartsState {
     entities: {
@@ -53,6 +49,7 @@ export function reducer(state = initialState, action: fromActions.CartsAction): 
         }
 
         case fromActions.ADD_TOCART_SUCCESS:
+        case fromActions.EDIT_CARTUSER_SUCCESS:
         case fromActions.EDIT_PRODUCTQUANTITY_SUCCESS:
         case fromActions.REMOVE_FROMCART_SUCCESS: {
             const cart = action.payload;
@@ -65,6 +62,15 @@ export function reducer(state = initialState, action: fromActions.CartsAction): 
                 entities
             }
         }
+
+        case fromActions.REMOVE_ALLCARTPRODUCTS_SUCCESS : {
+            const cart = action.payload;
+            state.entities[cart.id].products = {}
+            return {
+                ...state,
+            }
+        }
+
         default:
             return state;
     }

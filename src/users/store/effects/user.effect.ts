@@ -33,4 +33,16 @@ export class UserEffects {
                 )
         })
     );
+
+    @Effect()
+    editUser$ = this.action$.ofType(fromActions.EDIT_USER).pipe(
+        map((action : fromActions.EditUser) => action.payload),
+        switchMap ((user : User) => {
+            return this.userService
+                .updateUser (user).pipe (
+                    map ((user : User) => new fromActions.EditUserSuccess(user)),
+                    catchError (error => of(new fromActions.EditUserFail(error)))
+                )
+        })
+    );
 }
