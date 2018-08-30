@@ -1,6 +1,10 @@
+<!--Navigation Bar-->
 <navbar></navbar>
 <br>
+<!--User Information Content-->
 <div class='col-md-offset-1 col-md-10'>
+
+    <!-- Just show the information-->
     <div *ngIf='!isEditing; else showform'>
         <table class="table">
             <tr>
@@ -27,16 +31,23 @@
                 <th>Birthdate : </th>
                 <td>{{user.birthdate}}</td>
             </tr>
+            <tr>
+                <th>Mobile : </th>
+                <td>{{user.mobile}}</td>
+            </tr>
             <tr *ngIf='modelUser.interests'>
                 <th>Interests : </th>
                 <td>{{user?.interests}}</td>
             </tr>
         </table>
 
+        <!-- Edit Information Button-->
         <button class="btn btn-default col-md-12" type="button" tooltip="Edit Information" [delay]="500" placement="left" (click)="toggleEdit()">
             <span class="glyphicon glyphicon glyphicon-pencil"></span>
         </button>
     </div>
+
+    <!-- Edit the information-->
     <ng-template #showform>
         <form (ngSubmit)="onSubmit(userinfoForm)" #userinfoForm="ngForm">
             <table class="table">
@@ -79,13 +90,18 @@
                     </td>
                 </tr>
                 <tr>
+                    <th>Mobile : </th>
+                    <td>
+                        <input name="mobile" type="text" class="form-control" [(ngModel)]="modelUser.mobile" #email='ngModel' required>
+                    </td>
+                </tr>
+                <tr>
                     <th>Interests : </th>
                     <td>
                         <input name="interests " type="text " class="form-control " [(ngModel)]="modelUser.interests " #interests='ngModel'>
                     </td>
                 </tr>
             </table>
-
             <button class="btn btn-default" type="submit">Submit</button>
         </form>
     </ng-template>

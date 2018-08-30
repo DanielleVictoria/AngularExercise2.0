@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import * as fromContainers from './containers';
 import * as fromComponents from './components';
 import * as fromServices from './services';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { TooltipModule, ModalModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './components/navbar.component';
 import { reducers, effects } from './store';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { TooltipModule, ModalModule } from 'ngx-bootstrap';
 
 const routes: Routes = [
     { path: 'shop', component: fromContainers.ShopComponent },
@@ -28,7 +28,7 @@ const routes: Routes = [
         //EffectsModule.forFeature (effects),
         FormsModule,
         TooltipModule.forRoot(),
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
     ],
     exports: [
         NavbarComponent,

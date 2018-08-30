@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Store } from '@ngrx/store';
-import { ShoppingCartState, getCartProducts, getCartQuantities, AddTransaction, getCart, getAllTransactions, RemoveAllCartProducts, LoadTransactions } from '../store';
+import { ShoppingCartState, getCartProducts, getCartQuantities, AddTransaction, getCart, RemoveAllCartProducts, LoadTransactions } from '../store';
 import { getCurrentUser } from '../../users/store';
 import { UserState } from '../../users/store/reducers/user.reducer';
-import { Observable } from 'rxjs';
 import { Product } from '../../models/product';
 import { Transaction } from '../../models/transaction';
 import { Cart } from '../../models/cart';

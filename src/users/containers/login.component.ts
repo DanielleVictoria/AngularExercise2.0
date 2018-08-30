@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import * as fromUserStore from '../store';
 import * as fromShoppingCartStore from '../../shoppingcart/store';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { User } from '../../models/user';
-import { UserService } from '../store/services/users.service';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,42 +14,20 @@ export class LoginComponent implements OnInit {
 
     users: User[];
 
-
     constructor(
         private store: Store<fromUserStore.UserState | fromShoppingCartStore.ShoppingCartState>,
         private router: Router
     ) { }
 
-    testing = true;
     ngOnInit() {
-        // skip login FOR TESTING ONLY
-        if (this.testing) {
-            let user: User = {
-                "id": 1,
-                "username": "mandeuk",
-                "password": "chichu",
-                "firstname": "Jennie",
-                "middlename": "RubyJane",
-                "lastname": "Kim",
-                "email": "kimjennie@samplemail.com",
-                "birthdate": "01/26/1995",
-                "interests": "Playing with Kuma"
-            }
-            this.store.dispatch(new fromUserStore.LoginUser(user));
-            this.store.dispatch(new fromShoppingCartStore.LoadCart(user));
-            this.router.navigate(['/shop']);
-        }
-
-        let loggedin: boolean;
-        this.store.select(fromUserStore.getUserLoggedIn).subscribe(loggedin => loggedin);
-
         // Load all of the users
         this.store.dispatch(new fromUserStore.LoadUsers);
 
-        // set the users to a variable
+        // set the users to a variable to iterate later
         this.store.select(fromUserStore.getUsers).subscribe((users) => this.users = users);
     }
 
+    // Control for a login attempt passed by the LoginForm component
     attemptLogin(event: { username: string, password: string }) {
 
         if (!event.username && !event.password) {

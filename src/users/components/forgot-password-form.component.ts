@@ -1,39 +1,55 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import * as fromUserStore from '../store';
+import * as fromShoppingCartStore from '../../shoppingcart/store';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { User } from '../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password-form',
   templateUrl: './forgot-password-form.component.html',
-  //styleUrls: ['./forgot-password-form.component.css']
+  styles: ['* { font-family: rosario; }']
 })
-export class ForgotPasswordFormComponent implements OnInit, OnChanges {
+export class ForgotPasswordFormComponent implements OnInit {
+
+  users: User[];
 
   myModel = {
     username: "",
     email: "",
-    mobilenum: ""
+    mobile: ""
   }
 
-  @Output()
-  infoEmitter: EventEmitter<{username,email,mobile}> = new EventEmitter<{username,email,mobile}>();
-
-  message: string = "Invalid Input";
-
-  constructor() {
+  constructor(
+    private store: Store<fromUserStore.UserState | fromShoppingCartStore.ShoppingCartState>,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
+    // Load all of the users
+    this.store.dispatch(new fromUserStore.LoadUsers);
 
-  }
-
-  ngOnChanges () {
-
+    // set the users to a variable to iterate later
+    this.store.select(fromUserStore.getUsers).subscribe((users) => this.users = users);
   }
 
   handleSubmit() {
-    let username = this.myModel.username;
-    let email = this.myModel.email;
-    let mobile = this.myModel.mobilenum;
-    this.infoEmitter.emit({username,email,mobile});
+    if (!this.myModel.username || !this.myModel.email || !this.myModel.mobile) {
+      window.alert ("Please fill out all of the needed entries");
+      return; 
+    }
+
+    for (let user of this.users) {
+      if (user.username == this.myModel.username && user.email == this.myModel.email && user.mobile == this.myModel.mobile) {
+        window.alert ("Your password is "  + user.password);        
+        this.router.navigate(['/login']);
+        return;
+      } 
+    }
+
+    window.alert ("No match found");
+    return;
   }
 
 }

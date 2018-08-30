@@ -19,7 +19,8 @@ export const initialState: UserState = {
         middlename: " ",
         lastname: " ",
         email: " ",
-        birthdate: " "
+        birthdate: " ",
+        mobile : " "
     },
     loggedin: false,
     loading: false,

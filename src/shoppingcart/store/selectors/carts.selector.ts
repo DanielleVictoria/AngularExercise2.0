@@ -45,9 +45,11 @@ export const getProductEntity = (product: Product) => createSelector(
 
 export const getCartProducts = createSelector(
     getCart, (cart) => {
-        if (cart) {
+        if (cart && Object.values(cart.products).length != 0) {
             return Object.keys(cart.products).map(
-                id => cart.products[parseInt(id, 10)].product
+                id => {
+                    return cart.products[id].product
+                }
             )
         }
     });

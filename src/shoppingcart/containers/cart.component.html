@@ -2,42 +2,57 @@
 <br>
 <div class='container-fluid'>
 
-    <!-- for viewing the filter-->
-    <div name='Filter' class='col-md-2'>
-        <filterview (filter)='filterProducts($event)'></filterview>
+    <!-- if there are no products to show, dont show the filter, the productview and checkout button-->
+    <div *ngIf='!(cartProducts$ | async); else showProducts'>
+        No products in cart
     </div>
 
-    <!-- for viewing the products-->
-    <div name='Products' class='col-md-10'>
-        <div class='' *ngFor='let product of cartProducts$ | async; index as i'>
-            <!-- make a row consisting of 3 columns -->
-            <div *ngIf='i % 3 == 0'>
-                <div class='row'>
-                </div>
-            </div>
-            <!-- view the product -->
-            <productview class='productview col-md-offset-1 col-md-3' [product]='product' (productEmitter)='addToCart($event)'>
+    <!--show the filter, the productview and the checkout button-->
+    <ng-template #showProducts>
 
-                <!-- content 1 - quantity selector -->
-                <quantityselector class='content1 col-md-12' [isCart]=true [product]='product' (productEntity)='editProductQuantity($event)'>
-                    <span class="content1 glyphicon glyphicon glyphicon-pencil"></span>
-                </quantityselector>
-
-                <!-- content 2 - Remove From Cart Button-->
-                <button class="content2 btn btn-default btn-block col-md-12" type="button" tooltip='Remove from Cart' [delay]="500" placement='left'
-                    (click)='removeFromCart(product)'>
-                    <span class="content1 glyphicon glyphicon glyphicon-remove"></span>
-                </button>
-            </productview>
-        </div> <!-- end of for-->
-
-        <!-- checkout page -->
-        <br>
-        <div class='row'>
-            <button class="btn btn-default col-md-offset-4 col-md-4" type="button" (click)='checkout()'>
-                Checkout
-            </button>
+        <!-- for viewing the filter-->
+        <div name='Filter' class='col-md-2'>
+            <filterview (filter)='filterProducts($event)'></filterview>
         </div>
 
-    </div> <!-- end of products-->
-</div>
+        <!-- for viewing the products-->
+        <div name='Products' class='col-md-10'>
+
+            <div *ngFor='let product of cartProducts$ | async; index as i'>
+
+                <!-- make a row consisting of 3 columns -->
+                <div *ngIf='i % 3 == 0'>
+                    <div class='row'>
+                    </div>
+                </div>
+
+                <!-- view the product -->
+                <productview class='productview col-md-offset-1 col-md-3' [product]='product' (productEmitter)='addToCart($event)'>
+
+                    <!-- content 1 - quantity selector -->
+                    <quantityselector class='content1 col-md-12' [isCart]=true [product]='product' (productEntity)='editProductQuantity($event)'>
+                        <span class="content1 glyphicon glyphicon glyphicon-pencil"></span>
+                    </quantityselector>
+
+                    <!-- content 2 - Remove From Cart Button-->
+                    <button class="content2 btn btn-default btn-block col-md-12" type="button" tooltip='Remove from Cart' [delay]="500" placement='left'
+                        (click)='removeFromCart(product)'>
+                        <span class="content1 glyphicon glyphicon glyphicon-remove"></span>
+                    </button>
+
+                </productview>
+
+            </div> <!-- end of for-->
+
+            <!-- Checkout the cart -->
+            <div class='row'>
+                <button class="btn btn-default col-md-offset-4 col-md-4" type="button" (click)='checkout()'>
+                    Checkout
+                </button>
+            </div>
+
+        </div> <!-- end of products-->
+
+    </ng-template>
+
+</div> <!-- end of container-->

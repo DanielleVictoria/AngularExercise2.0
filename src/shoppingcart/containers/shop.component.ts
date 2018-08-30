@@ -26,7 +26,6 @@ export class ShopComponent implements OnInit {
     }
 
     addToCart(event : ProductEntity) {
-        console.log ("Add to Cart", event);
         this.store.dispatch(new fromStore.AddToCart(event));
     }
 

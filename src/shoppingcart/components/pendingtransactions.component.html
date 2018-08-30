@@ -1,16 +1,43 @@
 <navbar></navbar>
 <br>
+
 <div class='col-md-offset-1 col-md-10' *ngFor='let transaction of (transactions | async)'>
-    <table class="table">
-        <tr>
-            <th>User : </th>
-            <td>{{user.username}}</td>
-        </tr>
-        <tr>
-            <th>Orders : </th>
-        </tr>
-        <tr>
-            {{transaction | json}}
-        </tr>
-    </table>
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">Transaction ID : {{transaction.id}}</h3>
+        </div>
+
+        <table class="table">
+
+            <tr>
+                <th>Status : </th>
+                <td><span class="label label-danger">{{transaction.status | uppercase}}</span></td>
+            </tr>
+
+            <tr>
+                <th>Transaction Price : </th>
+                <td>Php {{transaction.overallprice}}</td>
+            </tr>
+
+            <tr>
+                <th>Order : </th>
+            </tr>
+
+            <tr>
+                <table class="table table-condensed col-md-offset-1 col-md-11">
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                    <tr *ngFor='let productentity of getProductEntity(transaction.cart)'>
+                        <td>{{productentity.product.name}}</td>
+                        <td>{{productentity.product.price}}</td>
+                        <td>{{productentity.quantity}}</td>
+                    </tr>
+                </table>
+            </tr>
+        </table>
+    </div>
 </div>

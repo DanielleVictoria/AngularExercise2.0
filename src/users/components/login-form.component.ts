@@ -14,7 +14,7 @@ export class LoginFormComponent implements OnInit, OnChanges {
   @Output()
   forgotPasswordEmitter: EventEmitter<any> = new EventEmitter();
 
-  // for forms
+  // A model for the forms
   modelUser = {
     username: "",
     password: "",
@@ -36,8 +36,5 @@ export class LoginFormComponent implements OnInit, OnChanges {
     let password = this.modelUser.password;
     this.loginAttemptEmitter.emit({username,password});
   }
-
-  handleForgotPassword() {
-    this.forgotPasswordEmitter.emit();
-  }
 }
+

@@ -7,5 +7,6 @@ export class User {
     lastname : string;
     email : string;
     birthdate : string;
+    mobile : string;
     interests? : string;
 }

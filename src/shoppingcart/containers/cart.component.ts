@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-
 import * as fromShoppingCartStore from '../store';
 import * as fromUserStore from '../../users/store';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Product } from '../../models/product';
 import { User } from '../../models/user';
-import { CartService } from '../services';
 import { FilterModel } from '../components';
 import { ProductEntity } from '../../models/productEntity';
-import { Router } from '@angular/router';
+
 
 
 @Component({

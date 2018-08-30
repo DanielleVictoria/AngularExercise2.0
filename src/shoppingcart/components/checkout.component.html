@@ -1,7 +1,9 @@
 <navbar></navbar>
 <br>
 <div class='col-md-offset-1 col-md-10'>
+
     <table class="table table-hover">
+
         <tr>
             <th>#</th>
             <th>Items</th>
@@ -9,6 +11,7 @@
             <th>Quantity</th>
             <th>Price (w/ Quantity)</th>
         </tr>
+
         <tr *ngFor='let product of products; index as i'>
             <th>{{i + 1}}</th>
             <td>{{product.name}}</td>
@@ -16,6 +19,7 @@
             <td>{{getQuantity(i)}}</td>
             <td>Php {{getQuantity(i) * product.price}}</td>
         </tr>
+
         <tr>
             <th>Overall Price : </th>
             <td></td>
@@ -23,9 +27,11 @@
             <td></td>
             <td>Php {{computeOverall()}}</td>
         </tr>
+
     </table>
 
     <button class="btn btn-default col-md-offset-4 col-md-4" type="button" (click)='checkout()'>
         Submit
     </button>
+    
 </div>

@@ -8,12 +8,15 @@ import { ShoppingCartState, getProductQuantity } from '../store';
     selector: 'quantityselector',
     template: `
     <div class='row'>
+
         <div class='col-md-3 nopadding'>
             <button class='btn btn-default btn-block' type='button' (click)='subtract()'>-</button>
         </div>
+
         <div class='col-md-6 nopadding'>
-            <input class='btn btn-default btn-block' type='number' [(ngModel)]='quantity' />
+            <input class='btn btn-default btn-block' min=0 type='number' [(ngModel)]='quantity' />
         </div>
+
         <div class='col-md-3 nopadding'>
             <button class='btn btn-default btn-block' type='button' (click)='add()'>+</button>
         </div>
@@ -21,19 +24,21 @@ import { ShoppingCartState, getProductQuantity } from '../store';
         <button class="btn btn-default btn-block col-md-12" type="button" [tooltip]='tooltipMessage' [delay]="500" placement='left' (click)='emitProductEntity()'>
             <ng-content select='span'></ng-content>
         </button>
-        
+
     </div>
     `
 })
 
 export class QuantitySelectorComponent implements OnInit {
 
+    // if the caller is the cart component, show its quantity
     @Input()
     isCart : boolean = false;
 
     @Input()
     product: Product;
 
+    // outputs a {product,quantity}. This is according to the cart model
     @Output()
     productEntity: EventEmitter<ProductEntity> = new EventEmitter();
 

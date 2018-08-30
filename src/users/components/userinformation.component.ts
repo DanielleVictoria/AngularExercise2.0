@@ -30,13 +30,18 @@ export class UserInformationComponent implements OnInit {
     }
 
     onSubmit(ngForm : NgForm) {
+
         if (ngForm.invalid == true) {
             window.alert ("Please fill out all of the boxes");
             return;
         }
 
+        // Edit the User
         this.store.dispatch ( new EditUser(this.modelUser));
+
+        // Also update the current user in cart
         this.store.dispatch ( new EditCartUser(this.modelUser));
+
         this.toggleEdit();
     }
     
