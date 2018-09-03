@@ -42,9 +42,11 @@
         </table>
 
         <!-- Edit Information Button-->
-        <button class="btn btn-default col-md-12" type="button" tooltip="Edit Information" [delay]="500" placement="left" (click)="toggleEdit()">
+        <button class="btn btn-default col-md-offset-4 col-md-4" type="button" tooltip="Edit Information" [delay]="500" placement="left"
+            (click)="toggleEdit()">
             <span class="glyphicon glyphicon glyphicon-pencil"></span>
         </button>
+        <br><br>
     </div>
 
     <!-- Edit the information-->
@@ -54,45 +56,70 @@
                 <tr>
                     <th>Username : </th>
                     <td>
-                        <input name="username" type="text" class="form-control" [(ngModel)]="modelUser.username" #username='ngModel' required>
+                        <input id='username' name="username" type="text" class="form-control" [(ngModel)]="modelUser.username" #username='ngModel'
+                            required>
+                        <div class='errormessage' *ngIf='username.invalid && (username.dirty || username.touched) && username.errors.required'>
+                            Username is required.
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <th>First Name : </th>
                     <td>
-                        <input name="firstname" type="text" class="form-control" [(ngModel)]="modelUser.firstname" #firstname='ngModel' required>
+                        <input id='firstname' name="firstname" type="text" class="form-control" [(ngModel)]="modelUser.firstname" #firstname='ngModel'
+                            required>
+                        <div class='errormessage' *ngIf='firstname.invalid && (firstname.dirty || firstname.touched) && firstname.errors.required'>
+                            First name is required.
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <th>Middle Name : </th>
                     <td>
-                        <input name="middlename" type="text" class="form-control" [(ngModel)]="modelUser.middlename" #middlename='ngModel' required>
+                        <input id='middlename' name="middlename" type="text" class="form-control" [(ngModel)]="modelUser.middlename" #middlename='ngModel'
+                            required>
+                        <div class='errormessage' *ngIf='middlename.invalid && (middlename.dirty || middlename.touched) && middlename.errors.required'>
+                            Middle name is required.
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <th>Last Name : </th>
                     <td>
-                        <input name="lastname" type="text" class="form-control" [(ngModel)]="modelUser.lastname" #lastname='ngModel' required>
+                        <input id='lastname' name="lastname" type="text" class="form-control" [(ngModel)]="modelUser.lastname" #lastname='ngModel'
+                            required>
+                        <div class='errormessage' *ngIf='lastname.invalid && (lastname.dirty || lastname.touched) && lastname.errors.required'>
+                            Last name is required.
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <th>Email : </th>
                     <td>
-                        <input name="email" type="text" class="form-control" [(ngModel)]="modelUser.email" #email='ngModel' required>
+                        <input id='email' name="email" type="text" class="form-control" [(ngModel)]="modelUser.email" #email='ngModel' required>
+                        <div class='errormessage' *ngIf='(email.dirty || email.touched) && email.errors && email.errors.required'>
+                            Email is required.
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
                     <th>Birthdate : </th>
                     <td>
-                        <input name="birthdate" type="text" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY' }" [(ngModel)]="
+                        <input id='birthdate' name="birthdate" type="text" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY' }" [(ngModel)]="
                         modelUser.birthdate " #birthdate='bsDatepicker' [bsValue]='modelUser.birthdate' required>
+                        <div class='errormessage' *ngIf='birthdate.invalid && (birthdate.dirty || birthdate.touched) && birthdate.errors.required'>
+                            Birthdate is required.
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <th>Mobile : </th>
                     <td>
-                        <input name="mobile" type="text" class="form-control" [(ngModel)]="modelUser.mobile" #email='ngModel' required>
+                        <input id='mobile' name="mobile" type="text" class="form-control" [(ngModel)]="modelUser.mobile" #mobile='ngModel' required>
+                        <div class='errormessage' *ngIf='mobile.invalid && (mobile.dirty || mobile.touched) && mobile.errors.required'>
+                            Mobile is required.
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -102,7 +129,8 @@
                     </td>
                 </tr>
             </table>
-            <button class="btn btn-default" type="submit">Submit</button>
+            <button class="btn btn-default col-md-offset-4 col-md-4" type="submit">Submit</button>
+            <br><br><br>
         </form>
     </ng-template>
 </div>

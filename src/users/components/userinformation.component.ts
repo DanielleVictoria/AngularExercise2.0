@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Store } from '@ngrx/store';
-import { UserState, getCurrentUser, EditUser } from '../store';
+import { UserState, getCurrentUser, EditUser, getUserWithUsername } from '../store';
 import { NgForm } from '@angular/forms';
 import { ShoppingCartState, EditCartUser } from '../../shoppingcart/store';
 
@@ -13,6 +13,7 @@ import { ShoppingCartState, EditCartUser } from '../../shoppingcart/store';
 export class UserInformationComponent implements OnInit {
     
     isEditing : boolean = false;
+    users : User[];
     user : User; 
     modelUser : User;
     
@@ -31,7 +32,15 @@ export class UserInformationComponent implements OnInit {
 
     onSubmit(ngForm : NgForm) {
 
-        if (ngForm.invalid == true) {
+        let testuserusername : User; 
+        this.store.select (getUserWithUsername(this.modelUser.username)).subscribe (user => testuserusername = user);
+
+        if (testuserusername != null && testuserusername.id != this.user.id) {
+            window.alert ("Username is taken");
+            return;
+        }
+
+        if (ngForm.invalid == true ) {
             window.alert ("Please fill out all of the boxes");
             return;
         }

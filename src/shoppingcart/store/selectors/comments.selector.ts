@@ -22,7 +22,11 @@ export const getAllComments = createSelector(
 
 export const getCommentsOfProduct = (productID : number) => createSelector(
     getAllComments, (allComments) => {
-        return allComments.filter(comment => comment.productid == productID);
+        let filteredComments =  allComments.filter(comment => comment.productid == productID);
+        if (filteredComments.length > 0) {
+            return filteredComments;
+        }
+        return null;
     }
 ); 
 

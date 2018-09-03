@@ -9,6 +9,7 @@ import { RouterLink} from '@angular/router';
 export class NavbarComponent implements OnInit {
     constructor() {
     }
+
     ngOnInit() {
         // When the user scrolls the page, execute myFunction 
         window.onscroll = function () { addSticky() };
@@ -28,8 +29,4 @@ export class NavbarComponent implements OnInit {
             }
         }
      }
-
-
-
-
 }

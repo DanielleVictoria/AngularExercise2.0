@@ -1,4 +1,4 @@
-<div class='' *ngIf='product'>
+<div class='productview col-xs-offset-0 col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-3' *ngIf='product'>
 
     <span class="label label-info">{{product.category | uppercase}}</span>
 
@@ -39,24 +39,33 @@
             </div>
 
             <div name='Information' class='col-md-7'>
-                <h4><span class="label label-info">{{product.category}}</span></h4>
+                <h4><span class="label label-info">{{product.category | uppercase}}</span></h4>
                 <h2>{{product.name}}</h2>
                 <h4>PHP {{product.price}}</h4>
-                <p>{{product.description}}</p>
+                <div class='well well-sm col-md-11' *ngIf='product.description'>
+                    <p>{{product.description}}</p>
+                </div>
             </div>
 
             <div name='Comments' class='col-md-12'>
                 <h3>Comments</h3>
-                <div *ngFor='let comment of (comments | async)' class='col-md-offset-1 col-md-11'>
-                    <br>
-                    <b>{{(getUsername(comment.userid) | async)}}</b>
-                    <p>{{comment.message}}</p>
-                    <br>
+                <div *ngIf='(comments | async) != null; else nocomment'>
+                    <div *ngFor='let comment of (comments | async)' class='col-md-offset-1 col-md-11'>
+                        <br>
+                        <b>{{(getUsername(comment.userid) | async)}}</b>
+                        <p>{{comment.message}}</p>
+                        <br>
+                    </div>
                 </div>
+                <ng-template #nocomment>
+                    <br> No comments for this product yet.
+                    <br>
+                    <br>
+                </ng-template>
                 <textarea name='comment' #comment class="form-control" rows="5"></textarea>
                 <button (click)='addComment(comment.value)' type="submit" class="btn btn-default">Add Comment</button>
             </div>
-            
+
         </div>
     </div>
 </ng-template>

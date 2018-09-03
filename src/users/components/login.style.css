@@ -6,7 +6,12 @@
 
 * {
     color: #644547;
+    font-family : 'rosario';
 }
+
+input{
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
 /*
 body{

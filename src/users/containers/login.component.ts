@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'login',
-    templateUrl: 'login.component.html'
+    templateUrl: 'login.component.html',
+    styleUrls : ['../components/login.style.css']
 })
 
 export class LoginComponent implements OnInit {

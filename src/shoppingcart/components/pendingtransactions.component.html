@@ -1,5 +1,8 @@
 <navbar></navbar>
 <br>
+<div class='center' *ngIf='(transactions | async).length === 0'>
+    No current transactions.
+</div>
 
 <div class='col-md-offset-1 col-md-10' *ngFor='let transaction of (transactions | async)'>
     <div class="panel panel-default">

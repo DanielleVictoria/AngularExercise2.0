@@ -4,19 +4,29 @@
 
     <!-- for viewing the filter-->
     <div name='Filter' class='col-md-2'>
-        <filterview (filter)='filterProducts($event)'></filterview>
+        <div class='row'>
+            <filterview (filter)='filterProducts($event)'></filterview>
+        </div>
     </div>
 
     <!-- for viewing the products-->
     <div name='Products' class='col-md-10'>
+
+        <div class='center'>
+            {{(products$ | async).length}} result/s retrieved.
+            <br><br>
+        </div>
+
         <div class='' *ngFor='let product of products$ | async; index as i'>
+
             <!-- make a row consisting of 3 columns -->
             <div *ngIf='i % 3 == 0'>
                 <div class='row'>
                 </div>
             </div>
+
             <!-- view the product -->
-            <productview class='productview col-md-offset-1 col-md-3' [product]='product' (productEmitter)='addToCart($event)'>
+            <productview [product]='product' (productEmitter)='addToCart($event)'>
 
                 <!-- content 1 - quantity selector -->
                 <quantityselector class='content1 col-md-12' [product]='product' (productEntity)='addToCart($event)'>

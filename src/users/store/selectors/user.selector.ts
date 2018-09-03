@@ -24,6 +24,19 @@ export const getUsernameWithID = (id: number) => createSelector(
     }
 );
 
+export const getUserWithUsername = (username: string) => createSelector(
+    getUsers, (users) => {
+        if (users) {
+            for (let user of users) {
+                if (user.username == username) {
+                    return user;
+                }
+            }
+            return null;
+        }
+    }
+);
+
 export const getCurrentUser = createSelector(
     getUserState,
     fromReducer.getCurrentUser

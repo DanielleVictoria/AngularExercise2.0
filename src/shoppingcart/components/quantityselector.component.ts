@@ -9,19 +9,19 @@ import { ShoppingCartState, getProductQuantity } from '../store';
     template: `
     <div class='row'>
 
-        <div class='col-md-3 nopadding'>
-            <button class='btn btn-default btn-block' type='button' (click)='subtract()'>-</button>
+        <div class='col-xs-3 col-sm-3 col-md-3 nopadding'>
+            <button class='btn btn-default btn-block pink' type='button' (click)='subtract()'>-</button>
         </div>
 
-        <div class='col-md-6 nopadding'>
-            <input class='btn btn-default btn-block' min=0 type='number' [(ngModel)]='quantity' />
+        <div class='col-xs-6 col-sm-6 col-md-6 nopadding'>
+            <input class='btn btn-default btn-block pink' min=0 type='number' [(ngModel)]='quantity' />
         </div>
 
-        <div class='col-md-3 nopadding'>
-            <button class='btn btn-default btn-block' type='button' (click)='add()'>+</button>
+        <div class='col-xs-3 col-sm-3 col-md-3 nopadding'>
+            <button class='btn btn-default btn-block pink' type='button' (click)='add()'>+</button>
         </div>
 
-        <button class="btn btn-default btn-block col-md-12" type="button" [tooltip]='tooltipMessage' [delay]="500" placement='left' (click)='emitProductEntity()'>
+        <button class="btn btn-default col-xs-12 col-sm-12 col-md-12 pink" type="button" [tooltip]='tooltipMessage' [delay]="500" placement='left' (click)='emitProductEntity()'>
             <ng-content select='span'></ng-content>
         </button>
 

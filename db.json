@@ -34,22 +34,28 @@
       "price": 900,
       "category": "Entertainment",
       "description": "When college senior Anastasia Steele (Dakota Johnson) steps in for her sick roommate to interview prominent businessman Christian Grey (Jamie Dornan) for their campus paper, little does she realize the path her life will take. Christian, as enigmatic as he is rich and powerful, finds himself strangely drawn to Ana, and she to him. Though sexually inexperienced, Ana plunges headlong into an affair -- and learns that Christian's true sexual proclivities push the boundaries of pain and pleasure."
+    },
+    {
+      "id": 6,
+      "name": "Red Velvet : Summer Magic",
+      "price": 1000,
+      "category": "Entertainment"
     }
   ],
   "carts": [
     {
       "id": 1,
       "user": {
-        "id": 4,
-        "username": "SLUGG",
+        "id": 1,
+        "username": "jenniekim",
         "password": "abcd",
-        "firstname": "Seulgi",
-        "middlename": "Gom",
-        "lastname": "Kang",
-        "email": "kangseulgi@samplemail.com",
+        "firstname": "Jennie",
+        "middlename": "RubyJane",
+        "lastname": "Kim",
+        "email": "kimjennie@samplemail.com",
         "birthdate": "01/26/1995",
-        "mobile": "09059796155",
-        "interests": ""
+        "mobile": "09059796151",
+        "interests": "Playing with Kuma"
       },
       "products": {}
     },
@@ -67,7 +73,18 @@
         "mobile": "09059796155",
         "interests": ""
       },
-      "products": {}
+      "products": {
+        "3": {
+          "product": {
+            "id": 3,
+            "name": "Anti Sebum Facial Powder",
+            "price": 300,
+            "category": "Makeup",
+            "description": " Sebum control powder that allows for non-greasy, downy baby skin. Sebum absorption powder and mineral sebum control powder absorb excess sebum for a bright, downy skin as if presently putting on makeup"
+          },
+          "quantity": 1
+        }
+      }
     },
     {
       "id": 3,
@@ -77,13 +94,24 @@
         "password": "abcd",
         "firstname": "Irene",
         "middlename": "Joohyun",
-        "lastname": "Bae",
-        "email": "baeirene@samplemail.com",
+        "lastname": "Kang",
+        "email": "irenekang@samplemail.com",
         "birthdate": "01/26/1995",
         "mobile": "09059796155",
         "interests": "Laundry"
       },
-      "products": {}
+      "products": {
+        "4": {
+          "product": {
+            "id": 4,
+            "name": "Blackpink : SQUARE UP",
+            "price": 1000,
+            "category": "Entertainment",
+            "description": "SQUARE UP is the third EP of BLACKPINK’s SQUARE music series. The group previously released the single album SQUARE ONE and SQUARE TWO in August 2016 and November 2016, respectively."
+          },
+          "quantity": 4
+        }
+      }
     },
     {
       "id": 4,
@@ -144,8 +172,8 @@
       "password": "abcd",
       "firstname": "Irene",
       "middlename": "Joohyun",
-      "lastname": "Bae",
-      "email": "baeirene@samplemail.com",
+      "lastname": "Kang",
+      "email": "irenekang@samplemail.com",
       "birthdate": "01/26/1995",
       "mobile": "09059796155",
       "interests": "Laundry"
@@ -345,6 +373,87 @@
       },
       "status": "pending",
       "overallprice": 18050
+    },
+    {
+      "id": 4,
+      "cart": {
+        "id": 1,
+        "user": {
+          "id": 1,
+          "username": "jenniekim",
+          "password": "abcd",
+          "firstname": "Jennie",
+          "middlename": "RubyJane",
+          "lastname": "Kim",
+          "email": "kimjennie@samplemail.com",
+          "birthdate": "01/26/1995",
+          "mobile": "09059796151",
+          "interests": "Playing with Kuma"
+        },
+        "products": {
+          "1": {
+            "product": {
+              "id": 1,
+              "name": "Celeteque",
+              "price": 1200,
+              "category": "Healthcare",
+              "description": "Minimizes skin discoloration or melasma and prevents further darkening of the skin by inhibiting melanin formation. Fights free radicals that can cause skin aging. Inhibit tyrosinase production Hypoallergenic and safe for use"
+            },
+            "quantity": 1
+          },
+          "2": {
+            "product": {
+              "id": 2,
+              "name": "Headband Ribbon",
+              "price": 50,
+              "category": "Fashion",
+              "description": "The new trend today. Brought to you by Hoax Inc."
+            },
+            "quantity": 1
+          },
+          "3": {
+            "product": {
+              "id": 3,
+              "name": "Anti Sebum Facial Powder",
+              "price": 300,
+              "category": "Makeup",
+              "description": " Sebum control powder that allows for non-greasy, downy baby skin. Sebum absorption powder and mineral sebum control powder absorb excess sebum for a bright, downy skin as if presently putting on makeup"
+            },
+            "quantity": 2
+          },
+          "4": {
+            "product": {
+              "id": 4,
+              "name": "Blackpink : SQUARE UP",
+              "price": 1000,
+              "category": "Entertainment",
+              "description": "SQUARE UP is the third EP of BLACKPINK’s SQUARE music series. The group previously released the single album SQUARE ONE and SQUARE TWO in August 2016 and November 2016, respectively."
+            },
+            "quantity": 3
+          },
+          "5": {
+            "product": {
+              "id": 5,
+              "name": "Fifty Shades of Grey",
+              "price": 900,
+              "category": "Entertainment",
+              "description": "When college senior Anastasia Steele (Dakota Johnson) steps in for her sick roommate to interview prominent businessman Christian Grey (Jamie Dornan) for their campus paper, little does she realize the path her life will take. Christian, as enigmatic as he is rich and powerful, finds himself strangely drawn to Ana, and she to him. Though sexually inexperienced, Ana plunges headlong into an affair -- and learns that Christian's true sexual proclivities push the boundaries of pain and pleasure."
+            },
+            "quantity": 1
+          },
+          "6": {
+            "product": {
+              "id": 6,
+              "name": "Red Velvet : Summer Magic",
+              "price": 1000,
+              "category": "Entertainment"
+            },
+            "quantity": 1
+          }
+        }
+      },
+      "status": "pending",
+      "overallprice": 6750
     }
   ]
 }
